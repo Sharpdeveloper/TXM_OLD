@@ -1,0 +1,5 @@
+/Users/martin/Projekte/TXM/TXM.Core/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/martin/Projekte/TXM/TXM.Core/bin/Debug/TXM.Core.dll.mdb
+/Users/martin/Projekte/TXM/TXM.Core/bin/Debug/TXM.Core.dll
+/Users/martin/Projekte/TXM/TXM.Core/obj/Debug/TXM.Core.dll
+/Users/martin/Projekte/TXM/TXM.Core/obj/Debug/TXM.Core.dll.mdb

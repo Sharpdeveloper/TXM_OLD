@@ -8,13 +8,422 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/TXM.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="400 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="518 300">
+    <action-group name="Default">
+      <action id="FileAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">File</property>
+        <property name="ShortLabel" translatable="yes">File</property>
+      </action>
+      <action id="NewAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">New</property>
+        <property name="ShortLabel" translatable="yes">New</property>
+      </action>
+      <action id="NewTournamentAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">New Tournament</property>
+        <property name="ShortLabel" translatable="yes">New Tournament</property>
+      </action>
+      <action id="NewPlayerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">New Player</property>
+        <property name="ShortLabel" translatable="yes">New Player</property>
+      </action>
+      <action id="LoadAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load</property>
+        <property name="ShortLabel" translatable="yes">Load</property>
+      </action>
+      <action id="SaveTournamentAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Save Tournament</property>
+        <property name="ShortLabel" translatable="yes">Save Tournament</property>
+      </action>
+      <action id="LoadTournamentAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load Tournament</property>
+        <property name="ShortLabel" translatable="yes">Load Tournament</property>
+      </action>
+      <action id="LoadAutosaveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load Autosave</property>
+        <property name="ShortLabel" translatable="yes">Load Autosave</property>
+      </action>
+      <action id="LoadAutosavefileAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load Autosavefile</property>
+        <property name="ShortLabel" translatable="yes">Load Autosavefile</property>
+      </action>
+      <action id="ShowAutosaveAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Show Autosave</property>
+        <property name="ShortLabel" translatable="yes">Show Autosave</property>
+      </action>
+      <action id="LoadAutosavefileAction1">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load Autosavefile</property>
+        <property name="ShortLabel" translatable="yes">Load Autosavefile</property>
+      </action>
+      <action id="ImportExportAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Import / Export</property>
+        <property name="ShortLabel" translatable="yes">Import / Export</property>
+      </action>
+      <action id="ImportFromT3Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Import from T3</property>
+        <property name="ShortLabel" translatable="yes">Import from T3</property>
+      </action>
+      <action id="ExportToT3Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Export to T3</property>
+        <property name="ShortLabel" translatable="yes">Export to T3</property>
+      </action>
+      <action id="ExportToBBCodeAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Export to BBCode</property>
+        <property name="ShortLabel" translatable="yes">Export to BBCode</property>
+      </action>
+      <action id="PrintAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Print</property>
+        <property name="ShortLabel" translatable="yes">Print</property>
+      </action>
+      <action id="PrintTableAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Print Table</property>
+        <property name="ShortLabel" translatable="yes">Print Table</property>
+      </action>
+      <action id="PrintPairingsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Print Pairings</property>
+        <property name="ShortLabel" translatable="yes">Print Pairings</property>
+      </action>
+      <action id="PrintPairingsWithResultsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Print Pairings with results</property>
+        <property name="ShortLabel" translatable="yes">Print Pairings with results</property>
+      </action>
+      <action id="QuitAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Quit</property>
+        <property name="ShortLabel" translatable="yes">Quit</property>
+      </action>
+      <action id="PrintScoresheetAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Print Scoresheet</property>
+        <property name="ShortLabel" translatable="yes">Print Scoresheet</property>
+      </action>
+      <action id="TournamentAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Tournament</property>
+        <property name="ShortLabel" translatable="yes">Tournament</property>
+      </action>
+      <action id="ChangePairingsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Change Pairings</property>
+        <property name="ShortLabel" translatable="yes">Change Pairings</property>
+      </action>
+      <action id="ResetLastResultsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Reset Last Results</property>
+        <property name="ShortLabel" translatable="yes">Reset Last Results</property>
+      </action>
+      <action id="TournamentSettingsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Tournament Settings</property>
+        <property name="ShortLabel" translatable="yes">Tournament Settings</property>
+      </action>
+      <action id="ChangePlayerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Change Player</property>
+        <property name="ShortLabel" translatable="yes">Change Player</property>
+      </action>
+      <action id="RemovePlayerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Remove Player</property>
+        <property name="ShortLabel" translatable="yes">Remove Player</property>
+      </action>
+      <action id="ToolsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Tools</property>
+        <property name="ShortLabel" translatable="yes">Tools</property>
+      </action>
+      <action id="TimerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Timer</property>
+        <property name="ShortLabel" translatable="yes">Timer</property>
+      </action>
+      <action id="RandomizerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Randomizer</property>
+        <property name="ShortLabel" translatable="yes">Randomizer</property>
+      </action>
+      <action id="ShowTablePairingsAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Show Table &amp; Pairings</property>
+        <property name="ShortLabel" translatable="yes">Show Table &amp; Pairings</property>
+      </action>
+      <action id="LanguageAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Language</property>
+        <property name="ShortLabel" translatable="yes">Language</property>
+      </action>
+      <action id="LoadLanguagesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Load Languages</property>
+        <property name="ShortLabel" translatable="yes">Load Languages</property>
+      </action>
+      <action id="DefaultLanguageEnglishAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Default Language (english)</property>
+        <property name="ShortLabel" translatable="yes">Default Language (english)</property>
+      </action>
+      <action id="HelpAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Help</property>
+        <property name="ShortLabel" translatable="yes">Help</property>
+      </action>
+      <action id="AboutTXMAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">About TXM</property>
+        <property name="ShortLabel" translatable="yes">About TXM</property>
+      </action>
+      <action id="ShowsTimeForTOAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Shows Time for TO</property>
+        <property name="ShortLabel" translatable="yes">Shows Time for TO</property>
+      </action>
+      <action id="StartTimerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Start Timer</property>
+        <property name="ShortLabel" translatable="yes">Start Timer</property>
+      </action>
+      <action id="PauseTimerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Pause Timer</property>
+        <property name="ShortLabel" translatable="yes">Pause Timer</property>
+      </action>
+      <action id="ResetTimerAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Reset Timer</property>
+        <property name="ShortLabel" translatable="yes">Reset Timer</property>
+      </action>
+      <action id="SetTimeAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Set Time</property>
+        <property name="ShortLabel" translatable="yes">Set Time</property>
+      </action>
+      <action id="T30MinutesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">30 Minutes</property>
+        <property name="ShortLabel" translatable="yes">30 Minutes</property>
+      </action>
+      <action id="T45MinutesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">45 Minutes</property>
+        <property name="ShortLabel" translatable="yes">45 Minutes</property>
+      </action>
+      <action id="T60MinutesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">60 Minutes</property>
+        <property name="ShortLabel" translatable="yes">60 Minutes</property>
+      </action>
+      <action id="T75MinutesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">75 Minutes</property>
+        <property name="ShortLabel" translatable="yes">75 Minutes</property>
+      </action>
+      <action id="T90MinutesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">90 Minutes</property>
+        <property name="ShortLabel" translatable="yes">90 Minutes</property>
+      </action>
+      <action id="VariableAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Variable</property>
+        <property name="ShortLabel" translatable="yes">Variable</property>
+      </action>
+    </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
     <signal name="DeleteEvent" handler="OnDeleteEvent" />
     <child>
-      <placeholder />
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.MenuBar" id="menubar1">
+            <property name="MemberName" />
+            <node name="__gtksharp_103_Stetic_Editor_ActionMenuBar" type="Menubar">
+              <node type="Menu" action="FileAction">
+                <node type="Menu" action="NewAction">
+                  <node type="Menuitem" action="NewTournamentAction" />
+                  <node type="Menuitem" action="NewPlayerAction" />
+                </node>
+                <node type="Menu" action="LoadAction">
+                  <node type="Menuitem" action="LoadTournamentAction" />
+                  <node type="Menuitem" action="LoadAutosavefileAction1" />
+                </node>
+                <node type="Menuitem" action="SaveTournamentAction" />
+                <node type="Menu" action="ImportExportAction">
+                  <node type="Menuitem" action="ImportFromT3Action" />
+                  <node type="Menuitem" action="ExportToT3Action" />
+                  <node type="Menuitem" action="ExportToBBCodeAction" />
+                </node>
+                <node type="Menu" action="PrintAction">
+                  <node type="Menuitem" action="PrintTableAction" />
+                  <node type="Menuitem" action="PrintPairingsAction" />
+                  <node type="Menuitem" action="PrintPairingsWithResultsAction" />
+                  <node type="Menuitem" action="PrintScoresheetAction" />
+                </node>
+                <node type="Menuitem" action="QuitAction" />
+              </node>
+              <node type="Menu" action="TournamentAction">
+                <node type="Menuitem" action="ChangePairingsAction" />
+                <node type="Menuitem" action="ResetLastResultsAction" />
+                <node type="Menuitem" action="TournamentSettingsAction" />
+                <node type="Menuitem" action="ChangePlayerAction" />
+                <node type="Menuitem" action="RemovePlayerAction" />
+                <node type="Menuitem" action="ShowTablePairingsAction" />
+              </node>
+              <node type="Menu" action="ToolsAction">
+                <node type="Menuitem" action="TimerAction" />
+                <node type="Menuitem" action="RandomizerAction" />
+                <node type="Menu" action="LanguageAction">
+                  <node type="Menuitem" action="LoadLanguagesAction" />
+                  <node type="Menuitem" action="DefaultLanguageEnglishAction" />
+                </node>
+              </node>
+              <node type="Menu" action="HelpAction">
+                <node type="Menuitem" action="AboutTXMAction" />
+              </node>
+              <node type="Menu" action="ShowsTimeForTOAction">
+                <node type="Menuitem" action="StartTimerAction" />
+                <node type="Menuitem" action="PauseTimerAction" />
+                <node type="Menuitem" action="ResetTimerAction" />
+                <node type="Menu" action="SetTimeAction">
+                  <node type="Menuitem" action="T30MinutesAction" />
+                  <node type="Menuitem" action="T45MinutesAction" />
+                  <node type="Menuitem" action="T60MinutesAction" />
+                  <node type="Menuitem" action="T75MinutesAction" />
+                  <node type="Menuitem" action="T90MinutesAction" />
+                  <node type="Menuitem" action="VariableAction" />
+                </node>
+              </node>
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HBox" id="hbox1">
+            <property name="MemberName" />
+            <child>
+              <widget class="Gtk.Button" id="button29">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">GtkButton</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">0</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="button30">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">GtkButton</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">1</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="button31">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">GtkButton</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="Gtk.Button" id="button32">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Type">TextOnly</property>
+                <property name="Label" translatable="yes">GtkButton</property>
+                <property name="UseUnderline">True</property>
+              </widget>
+              <packing>
+                <property name="Position">3</property>
+                <property name="AutoSize">True</property>
+                <property name="Expand">False</property>
+                <property name="Fill">False</property>
+              </packing>
+            </child>
+            <child>
+              <placeholder />
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.HPaned" id="hpaned1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Position">122</property>
+            <child>
+              <placeholder />
+            </child>
+            <child>
+              <widget class="Gtk.VPaned" id="vpaned1">
+                <property name="MemberName" />
+                <property name="CanFocus">True</property>
+                <property name="Position">40</property>
+                <child>
+                  <placeholder />
+                </child>
+                <child>
+                  <placeholder />
+                </child>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">True</property>
+          </packing>
+        </child>
+      </widget>
     </child>
   </widget>
 </stetic-interface>

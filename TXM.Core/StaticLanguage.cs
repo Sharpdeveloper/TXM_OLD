@@ -158,5 +158,6 @@ namespace TXM.Core
 		public static string NoData = "There is no Ddata. Nothing can be removed.";
 		public static string ChooseValidFile = "Please choose a valid file.";
 		public static string FileDescription = "X-Wing Tournament file.";
+		public static string Open = "Open";
 	}
 }

@@ -98,7 +98,7 @@ namespace TXM.Core
 		public Tournament GOEPPImport ()
 		{
 			FileManager.AddFilter ("*.gip", "GÖPP Import Datei"); //ShouldBeTranslated
-			if (FileManager.Open ()) {
+			if (FileManager.Open (Lang.GetTranslation(StaticLanguage.Open), Lang.GetTranslation(StaticLanguage.Cancel))) {
 				try {
 					List<string> gipFile = new List<string> ();
 					using (StreamReader sr = new StreamReader (FileManager.FileName, Encoding.GetEncoding (28591))) {
@@ -157,7 +157,7 @@ namespace TXM.Core
 		public void GOEPPExport (Tournament tournament)
 		{
 			FileManager.AddFilter ("*.gep", "GÖPP Export Datei"); //ShouldBeTranslated
-			if (FileManager.Save ()) {
+			if (FileManager.Save (Lang.GetTranslation(StaticLanguage.Save), Lang.GetTranslation(StaticLanguage.Cancel))) {
 				string file = FileManager.FileName;
 				List<string> temp = new List<string> ();
 				string lastname, city;
@@ -229,7 +229,7 @@ namespace TXM.Core
 				file += "\\Autosave_" + DateTime.Now.ToFileTime () + "_" + tournament.Name + "_" + Autosavetype + Settings.FileExtension;
 			} else {
 				FileManager.AddFilter ("*" + Settings.FileExtension, Lang.GetTranslation (StaticLanguage.FileDescription));
-				if (FileManager.Save ()) {
+				if (FileManager.Save (Lang.GetTranslation(StaticLanguage.Save), Lang.GetTranslation(StaticLanguage.Cancel))) {
 					file = FileManager.FileName;
 				} else
 					return;
@@ -254,7 +254,7 @@ namespace TXM.Core
 				file = filename;
 			} else {
 				FileManager.AddFilter ("*" + Settings.FileExtension, Lang.GetTranslation (StaticLanguage.FileDescription));
-				if (FileManager.Open ())
+				if (FileManager.Open (Lang.GetTranslation(StaticLanguage.Open), Lang.GetTranslation(StaticLanguage.Cancel)))
 					file = FileManager.FileName;
 				else
 					return null;
@@ -648,8 +648,8 @@ namespace TXM.Core
 
 		public void NewImage ()
 		{
-			FileManager.AddFilter ("*.jpg;*.jpeg;*.png;*.tif;*.tiff", "Alle Bilderformate");
-			if (FileManager.Open ()) {
+			FileManager.AddFilter ("*.jpg;*.jpeg;*.png;*.tif;*.tiff", "Alle Bilderformate"); //ShouldBeTranslated
+			if (FileManager.Open (Lang.GetTranslation(StaticLanguage.Open), Lang.GetTranslation(StaticLanguage.Cancel))) {
 				string imageSrc = FileManager.FileName;
 				string newImageSrc = Path.Combine (SavePath, "background" + imageSrc.Remove (0, imageSrc.LastIndexOf (".")));
 				File.Copy (imageSrc, newImageSrc, true);

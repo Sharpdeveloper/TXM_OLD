@@ -10,7 +10,7 @@ namespace TXM.Core
         string FileName { get; set; }
 
         void AddFilter(string _filter, string _filtername, bool add = false);
-        bool Open();
-        bool Save();
+		bool Open(string openText, string CancelText);
+		bool Save(string saveText, string CancelText);
     }
 }

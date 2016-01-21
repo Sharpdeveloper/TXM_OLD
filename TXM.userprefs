@@ -1,9 +1,8 @@
-﻿<Properties StartupItem="TXM\TXM.csproj">
+﻿<Properties StartupItem="TXM/TXM.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="TXM\MainWindow.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TXM/MainWindow.cs">
     <Files>
-      <File FileName="TXM\MainWindow.cs" Line="10" Column="3" />
-      <File FileName="TXM\gtk-gui\MainWindow.cs" Line="1" Column="1" />
+      <File FileName="TXM/MainWindow.cs" Line="19" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,8 +4,11 @@ namespace TXM.Core
 {
 	public class Controller
 	{
-		public Controller ()
+		IO io;
+
+		public Controller (IFile fileManager, IMessage messageManager)
 		{
+			io = new IO (fileManager, messageManager);
 		}
 	}
 }

@@ -48,7 +48,7 @@ namespace TXM.Core
 
 		public IMessage MessageBox { get; set; }
 
-		public Language Lang { get; private set; }
+		public Language ActiveLanguage { get; private set; }
 
 		public bool AutosavePathExists {
 			get {
@@ -77,7 +77,7 @@ namespace TXM.Core
 			MessageBox = messageBox;
 
 			langseturl = Path.Combine (SavePath, "language.txt");
-			Lang = new Language ();
+			ActiveLanguage = new Language ();
 			languageList = Path.Combine (TempPath, "LanguageList.txt");
 
 			if (File.Exists (langseturl)) {
@@ -85,7 +85,7 @@ namespace TXM.Core
 				using (StreamReader sr = new StreamReader (langseturl)) {
 					setFile = sr.ReadLine ();
 				}
-				Lang = LoadLanguage (setFile, false, false);
+				ActiveLanguage = LoadLanguage (setFile, false, false);
 			}
 		}
 
@@ -98,7 +98,7 @@ namespace TXM.Core
 		public Tournament GOEPPImport ()
 		{
 			FileManager.AddFilter ("*.gip", "GÖPP Import Datei"); //ShouldBeTranslated
-			if (FileManager.Open (Lang.GetTranslation(StaticLanguage.Open), Lang.GetTranslation(StaticLanguage.Cancel))) {
+			if (FileManager.Open (ActiveLanguage.GetTranslation(StaticLanguage.Open), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 				try {
 					List<string> gipFile = new List<string> ();
 					using (StreamReader sr = new StreamReader (FileManager.FileName, Encoding.GetEncoding (28591))) {
@@ -120,7 +120,7 @@ namespace TXM.Core
 					//C: Paid 1 = Yes, 0 = No
 					//D: Actual T3 Rank
 					//x = End
-					Tournament tournament = new Tournament (Int32.Parse (gipFile [2]), gipFile [1], Lang.GetTranslation (StaticLanguage.Bye), Lang.GetTranslation (StaticLanguage.WonBye), Lang.GetTranslation (StaticLanguage.Imperium), gipFile [0]);
+					Tournament tournament = new Tournament (Int32.Parse (gipFile [2]), gipFile [1], ActiveLanguage.GetTranslation (StaticLanguage.Bye), ActiveLanguage.GetTranslation (StaticLanguage.WonBye), ActiveLanguage.GetTranslation (StaticLanguage.Imperium), gipFile [0]);
 					for (int i = 4; i < gipFile.Count; i++) {
 						tournament.AddPlayer (ConvertLineToPlayer (gipFile [i]));
 					}
@@ -157,7 +157,7 @@ namespace TXM.Core
 		public void GOEPPExport (Tournament tournament)
 		{
 			FileManager.AddFilter ("*.gep", "GÖPP Export Datei"); //ShouldBeTranslated
-			if (FileManager.Save (Lang.GetTranslation(StaticLanguage.Save), Lang.GetTranslation(StaticLanguage.Cancel))) {
+			if (FileManager.Save (ActiveLanguage.GetTranslation(StaticLanguage.Save), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 				string file = FileManager.FileName;
 				List<string> temp = new List<string> ();
 				string lastname, city;
@@ -228,8 +228,8 @@ namespace TXM.Core
 				}
 				file += "\\Autosave_" + DateTime.Now.ToFileTime () + "_" + tournament.Name + "_" + Autosavetype + Settings.FileExtension;
 			} else {
-				FileManager.AddFilter ("*" + Settings.FileExtension, Lang.GetTranslation (StaticLanguage.FileDescription));
-				if (FileManager.Save (Lang.GetTranslation(StaticLanguage.Save), Lang.GetTranslation(StaticLanguage.Cancel))) {
+				FileManager.AddFilter ("*" + Settings.FileExtension, ActiveLanguage.GetTranslation (StaticLanguage.FileDescription));
+				if (FileManager.Save (ActiveLanguage.GetTranslation(StaticLanguage.Save), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 					file = FileManager.FileName;
 				} else
 					return;
@@ -253,8 +253,8 @@ namespace TXM.Core
 			if (filename != "") {
 				file = filename;
 			} else {
-				FileManager.AddFilter ("*" + Settings.FileExtension, Lang.GetTranslation (StaticLanguage.FileDescription));
-				if (FileManager.Open (Lang.GetTranslation(StaticLanguage.Open), Lang.GetTranslation(StaticLanguage.Cancel)))
+				FileManager.AddFilter ("*" + Settings.FileExtension, ActiveLanguage.GetTranslation (StaticLanguage.FileDescription));
+				if (FileManager.Open (ActiveLanguage.GetTranslation(StaticLanguage.Open), ActiveLanguage.GetTranslation(StaticLanguage.Cancel)))
 					file = FileManager.FileName;
 				else
 					return null;
@@ -267,7 +267,7 @@ namespace TXM.Core
 				}
 				return t;
 			} catch {
-				ShowMessage (Lang.GetTranslation (StaticLanguage.ChooseValidFile));
+				ShowMessage (ActiveLanguage.GetTranslation (StaticLanguage.ChooseValidFile));
 				return null;
 			}
 		}
@@ -301,7 +301,7 @@ namespace TXM.Core
 		/// <param name="name">Name.</param>
 		/// <param name="download">If set to <c>true</c> the language will be downloaded.</param>
 		/// <param name="writeLang">If set to <c>true</c> the language will be saved</param>
-		public Language LoadLanguage (string name, bool download, bool writeLang = true)
+		public void LoadLanguage (string name, bool download, bool writeLang = true)
 		{
 			string fileBin = Path.Combine (BinLanguagePath, name + ".binlang");
 			string file = Path.Combine (LanguagePath, name + ".lang");
@@ -346,8 +346,7 @@ namespace TXM.Core
 					}
 				}
 			}
-			Lang = l;
-			return Lang;
+			ActiveLanguage = l;
 		}
 
 		/// <summary>
@@ -375,10 +374,10 @@ namespace TXM.Core
 		/// <returns>The language.</returns>
 		public Language ResetLanguage ()
 		{
-			Lang = new Language ();
+			ActiveLanguage = new Language ();
 			if (File.Exists (langseturl))
 				File.Delete (langseturl);
-			return Lang;
+			return ActiveLanguage;
 		}
 
 		#endregion
@@ -649,7 +648,7 @@ namespace TXM.Core
 		public void NewImage ()
 		{
 			FileManager.AddFilter ("*.jpg;*.jpeg;*.png;*.tif;*.tiff", "Alle Bilderformate"); //ShouldBeTranslated
-			if (FileManager.Open (Lang.GetTranslation(StaticLanguage.Open), Lang.GetTranslation(StaticLanguage.Cancel))) {
+			if (FileManager.Open (ActiveLanguage.GetTranslation(StaticLanguage.Open), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 				string imageSrc = FileManager.FileName;
 				string newImageSrc = Path.Combine (SavePath, "background" + imageSrc.Remove (0, imageSrc.LastIndexOf (".")));
 				File.Copy (imageSrc, newImageSrc, true);

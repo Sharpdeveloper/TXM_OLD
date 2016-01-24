@@ -16,7 +16,7 @@ namespace TXM
 		
 		private global::Gtk.Action MenuLoad;
 		
-		private global::Gtk.Action MenuSaveTournament;
+		private global::Gtk.Action MenuSave;
 		
 		private global::Gtk.Action MenuLoadTournament;
 		
@@ -42,7 +42,7 @@ namespace TXM
 		
 		private global::Gtk.Action MenuPrintPairings;
 		
-		private global::Gtk.Action PrintPairingsWithResultsAction;
+		private global::Gtk.Action MenuPrintResults;
 		
 		private global::Gtk.Action MenuQuit;
 		
@@ -56,7 +56,7 @@ namespace TXM
 		
 		private global::Gtk.Action MenuTournamentSettings;
 		
-		private global::Gtk.Action MenuChangePlayer;
+		private global::Gtk.Action MenuEditPlayer;
 		
 		private global::Gtk.Action MenuRemovePlayer;
 		
@@ -114,7 +114,7 @@ namespace TXM
 		
 		private global::Gtk.Button buttonChangePairings;
 		
-		private global::Gtk.Button buttonChangePlayer;
+		private global::Gtk.Button buttonEditPlayer;
 		
 		private global::Gtk.Button buttonReset;
 		
@@ -157,9 +157,9 @@ namespace TXM
 			this.MenuLoad = new global::Gtk.Action ("MenuLoad", global::Mono.Unix.Catalog.GetString ("Load"), null, null);
 			this.MenuLoad.ShortLabel = global::Mono.Unix.Catalog.GetString ("Load");
 			w1.Add (this.MenuLoad, null);
-			this.MenuSaveTournament = new global::Gtk.Action ("MenuSaveTournament", global::Mono.Unix.Catalog.GetString ("Save Tournament"), null, null);
-			this.MenuSaveTournament.ShortLabel = global::Mono.Unix.Catalog.GetString ("Save Tournament");
-			w1.Add (this.MenuSaveTournament, null);
+			this.MenuSave = new global::Gtk.Action ("MenuSave", global::Mono.Unix.Catalog.GetString ("Save"), null, null);
+			this.MenuSave.ShortLabel = global::Mono.Unix.Catalog.GetString ("Save Tournament");
+			w1.Add (this.MenuSave, null);
 			this.MenuLoadTournament = new global::Gtk.Action ("MenuLoadTournament", global::Mono.Unix.Catalog.GetString ("Load Tournament"), null, null);
 			this.MenuLoadTournament.ShortLabel = global::Mono.Unix.Catalog.GetString ("Load Tournament");
 			w1.Add (this.MenuLoadTournament, null);
@@ -196,9 +196,9 @@ namespace TXM
 			this.MenuPrintPairings = new global::Gtk.Action ("MenuPrintPairings", global::Mono.Unix.Catalog.GetString ("Print Pairings"), null, null);
 			this.MenuPrintPairings.ShortLabel = global::Mono.Unix.Catalog.GetString ("Print Pairings");
 			w1.Add (this.MenuPrintPairings, null);
-			this.PrintPairingsWithResultsAction = new global::Gtk.Action ("PrintPairingsWithResultsAction", global::Mono.Unix.Catalog.GetString ("Print Pairings with Results"), null, null);
-			this.PrintPairingsWithResultsAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Print Pairings with results");
-			w1.Add (this.PrintPairingsWithResultsAction, null);
+			this.MenuPrintResults = new global::Gtk.Action ("MenuPrintResults", global::Mono.Unix.Catalog.GetString ("Print Pairings with Results"), null, null);
+			this.MenuPrintResults.ShortLabel = global::Mono.Unix.Catalog.GetString ("Print Pairings with results");
+			w1.Add (this.MenuPrintResults, null);
 			this.MenuQuit = new global::Gtk.Action ("MenuQuit", global::Mono.Unix.Catalog.GetString ("Quit"), null, null);
 			this.MenuQuit.ShortLabel = global::Mono.Unix.Catalog.GetString ("Quit");
 			w1.Add (this.MenuQuit, null);
@@ -217,9 +217,9 @@ namespace TXM
 			this.MenuTournamentSettings = new global::Gtk.Action ("MenuTournamentSettings", global::Mono.Unix.Catalog.GetString ("Tournament Settings"), null, null);
 			this.MenuTournamentSettings.ShortLabel = global::Mono.Unix.Catalog.GetString ("Tournament Settings");
 			w1.Add (this.MenuTournamentSettings, null);
-			this.MenuChangePlayer = new global::Gtk.Action ("MenuChangePlayer", global::Mono.Unix.Catalog.GetString ("Change Player"), null, null);
-			this.MenuChangePlayer.ShortLabel = global::Mono.Unix.Catalog.GetString ("Change Player");
-			w1.Add (this.MenuChangePlayer, null);
+			this.MenuEditPlayer = new global::Gtk.Action ("MenuEditPlayer", global::Mono.Unix.Catalog.GetString ("Edit Player"), null, null);
+			this.MenuEditPlayer.ShortLabel = global::Mono.Unix.Catalog.GetString ("Change Player");
+			w1.Add (this.MenuEditPlayer, null);
 			this.MenuRemovePlayer = new global::Gtk.Action ("MenuRemovePlayer", global::Mono.Unix.Catalog.GetString ("Remove Player"), null, null);
 			this.MenuRemovePlayer.ShortLabel = global::Mono.Unix.Catalog.GetString ("Remove Player");
 			w1.Add (this.MenuRemovePlayer, null);
@@ -294,7 +294,7 @@ namespace TXM
 			this.vbox1 = new global::Gtk.VBox ();
 			this.vbox1.Name = "vbox1";
 			// Container child vbox1.Gtk.Box+BoxChild
-			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='MenuFile' action='MenuFile'><menu name='MenuNew' action='MenuNew'><menuitem name='MenuNewTournament' action='MenuNewTournament'/><menuitem name='MenuNewPlayer' action='MenuNewPlayer'/></menu><menu name='MenuLoad' action='MenuLoad'><menuitem name='MenuLoadTournament' action='MenuLoadTournament'/><menuitem name='MenuAutosavefile' action='MenuAutosavefile'/></menu><menuitem name='MenuSaveTournament' action='MenuSaveTournament'/><menu name='MenuImportExport' action='MenuImportExport'><menuitem name='MenuImportT3' action='MenuImportT3'/><menuitem name='MenuExportT3' action='MenuExportT3'/><menuitem name='MenuExportBBCode' action='MenuExportBBCode'/></menu><menu name='MenuPrint' action='MenuPrint'><menuitem name='MenuPrintTable' action='MenuPrintTable'/><menuitem name='MenuPrintPairings' action='MenuPrintPairings'/><menuitem name='PrintPairingsWithResultsAction' action='PrintPairingsWithResultsAction'/><menuitem name='MenuPrintScoresheet' action='MenuPrintScoresheet'/></menu><menuitem name='MenuQuit' action='MenuQuit'/></menu><menu name='MenuTournament' action='MenuTournament'><menuitem name='MenuChangePairings' action='MenuChangePairings'/><menuitem name='MenuResetLastResults' action='MenuResetLastResults'/><menuitem name='MenuTournamentSettings' action='MenuTournamentSettings'/><menuitem name='MenuChangePlayer' action='MenuChangePlayer'/><menuitem name='MenuRemovePlayer' action='MenuRemovePlayer'/><menuitem name='MenuShow' action='MenuShow'/></menu><menu name='MenuTools' action='MenuTools'><menuitem name='MenuTimer' action='MenuTimer'/><menuitem name='MenuRandomizer' action='MenuRandomizer'/><menu name='MenuLanguage' action='MenuLanguage'><menuitem name='MenuLoadLanguages' action='MenuLoadLanguages'/><menuitem name='MenuDefaultLanguage' action='MenuDefaultLanguage'/></menu></menu><menu name='MenuHelp' action='MenuHelp'><menuitem name='MenuAbout' action='MenuAbout'/></menu><menu name='MenuShowTime' action='MenuShowTime'><menuitem name='MenuStartTimer' action='MenuStartTimer'/><menuitem name='MenuPauseTimer' action='MenuPauseTimer'/><menuitem name='MenuResetTimer' action='MenuResetTimer'/><menu name='MenuSetTime' action='MenuSetTime'><menuitem name='Menu30Minutes' action='Menu30Minutes'/><menuitem name='Menu45Minutes' action='Menu45Minutes'/><menuitem name='Menu60Minutes' action='Menu60Minutes'/><menuitem name='Menu75Minutes' action='Menu75Minutes'/><menuitem name='Menu90Minutes' action='Menu90Minutes'/><menuitem name='MenuVariable' action='MenuVariable'/></menu></menu></menubar></ui>");
+			this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu name='MenuFile' action='MenuFile'><menu name='MenuNew' action='MenuNew'><menuitem name='MenuNewTournament' action='MenuNewTournament'/><menuitem name='MenuNewPlayer' action='MenuNewPlayer'/></menu><menu name='MenuLoad' action='MenuLoad'><menuitem name='MenuLoadTournament' action='MenuLoadTournament'/><menuitem name='MenuAutosavefile' action='MenuAutosavefile'/></menu><menuitem name='MenuSave' action='MenuSave'/><menu name='MenuImportExport' action='MenuImportExport'><menuitem name='MenuImportT3' action='MenuImportT3'/><menuitem name='MenuExportT3' action='MenuExportT3'/><menuitem name='MenuExportBBCode' action='MenuExportBBCode'/></menu><menu name='MenuPrint' action='MenuPrint'><menuitem name='MenuPrintTable' action='MenuPrintTable'/><menuitem name='MenuPrintPairings' action='MenuPrintPairings'/><menuitem name='MenuPrintResults' action='MenuPrintResults'/><menuitem name='MenuPrintScoresheet' action='MenuPrintScoresheet'/></menu><menuitem name='MenuQuit' action='MenuQuit'/></menu><menu name='MenuTournament' action='MenuTournament'><menuitem name='MenuChangePairings' action='MenuChangePairings'/><menuitem name='MenuResetLastResults' action='MenuResetLastResults'/><menuitem name='MenuTournamentSettings' action='MenuTournamentSettings'/><menuitem name='MenuEditPlayer' action='MenuEditPlayer'/><menuitem name='MenuRemovePlayer' action='MenuRemovePlayer'/><menuitem name='MenuShow' action='MenuShow'/></menu><menu name='MenuTools' action='MenuTools'><menuitem name='MenuTimer' action='MenuTimer'/><menuitem name='MenuRandomizer' action='MenuRandomizer'/><menu name='MenuLanguage' action='MenuLanguage'><menuitem name='MenuLoadLanguages' action='MenuLoadLanguages'/><menuitem name='MenuDefaultLanguage' action='MenuDefaultLanguage'/></menu></menu><menu name='MenuHelp' action='MenuHelp'><menuitem name='MenuAbout' action='MenuAbout'/></menu><menu name='MenuShowTime' action='MenuShowTime'><menuitem name='MenuStartTimer' action='MenuStartTimer'/><menuitem name='MenuPauseTimer' action='MenuPauseTimer'/><menuitem name='MenuResetTimer' action='MenuResetTimer'/><menu name='MenuSetTime' action='MenuSetTime'><menuitem name='Menu30Minutes' action='Menu30Minutes'/><menuitem name='Menu45Minutes' action='Menu45Minutes'/><menuitem name='Menu60Minutes' action='Menu60Minutes'/><menuitem name='Menu75Minutes' action='Menu75Minutes'/><menuitem name='Menu90Minutes' action='Menu90Minutes'/><menuitem name='MenuVariable' action='MenuVariable'/></menu></menu></menubar></ui>");
 			this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 			this.menubar1.Name = "menubar1";
 			this.vbox1.Add (this.menubar1);
@@ -339,13 +339,13 @@ namespace TXM
 			w5.Expand = false;
 			w5.Fill = false;
 			// Container child hbox1.Gtk.Box+BoxChild
-			this.buttonChangePlayer = new global::Gtk.Button ();
-			this.buttonChangePlayer.CanFocus = true;
-			this.buttonChangePlayer.Name = "buttonChangePlayer";
-			this.buttonChangePlayer.UseUnderline = true;
-			this.buttonChangePlayer.Label = global::Mono.Unix.Catalog.GetString ("Change Player");
-			this.hbox1.Add (this.buttonChangePlayer);
-			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.buttonChangePlayer]));
+			this.buttonEditPlayer = new global::Gtk.Button ();
+			this.buttonEditPlayer.CanFocus = true;
+			this.buttonEditPlayer.Name = "buttonChangePlayer";
+			this.buttonEditPlayer.UseUnderline = true;
+			this.buttonEditPlayer.Label = global::Mono.Unix.Catalog.GetString ("Change Player");
+			this.hbox1.Add (this.buttonEditPlayer);
+			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.buttonEditPlayer]));
 			w6.Position = 3;
 			w6.Expand = false;
 			w6.Fill = false;
@@ -435,7 +435,7 @@ namespace TXM
 			this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 			this.MenuNewTournament.Activated += new global::System.EventHandler (this.NewTournament_Click);
 			this.MenuNewPlayer.Activated += new global::System.EventHandler (this.NewPlayer_Click);
-			this.MenuSaveTournament.Activated += new global::System.EventHandler (this.SaveTournament_Click);
+			this.MenuSave.Activated += new global::System.EventHandler (this.SaveTournament_Click);
 			this.MenuLoadTournament.Activated += new global::System.EventHandler (this.LoadTournament_Click);
 			this.MenuAutosavefile.Activated += new global::System.EventHandler (this.LoadAutosavefile_Click);
 			this.MenuImportT3.Activated += new global::System.EventHandler (this.ImportT3_Click);
@@ -443,13 +443,13 @@ namespace TXM
 			this.MenuExportBBCode.Activated += new global::System.EventHandler (this.ExportBBCode_Click);
 			this.MenuPrintTable.Activated += new global::System.EventHandler (this.PrintTable_Click);
 			this.MenuPrintPairings.Activated += new global::System.EventHandler (this.PrintPairings_Click);
-			this.PrintPairingsWithResultsAction.Activated += new global::System.EventHandler (this.PrintResults_Click);
+			this.MenuPrintResults.Activated += new global::System.EventHandler (this.PrintResults_Click);
 			this.MenuQuit.Activated += new global::System.EventHandler (this.Quit_Click);
 			this.MenuPrintScoresheet.Activated += new global::System.EventHandler (this.PrintScoresheet_Click);
 			this.MenuChangePairings.Activated += new global::System.EventHandler (this.ChangePairings_Click);
 			this.MenuResetLastResults.Activated += new global::System.EventHandler (this.ResetLastResults_Click);
 			this.MenuTournamentSettings.Activated += new global::System.EventHandler (this.TournamentSettings_Click);
-			this.MenuChangePlayer.Activated += new global::System.EventHandler (this.ChangePlayer_Click);
+			this.MenuEditPlayer.Activated += new global::System.EventHandler (this.ChangePlayer_Click);
 			this.MenuRemovePlayer.Activated += new global::System.EventHandler (this.RemovePlayer_Click);
 			this.MenuTimer.Activated += new global::System.EventHandler (this.Timer_Click);
 			this.MenuRandomizer.Activated += new global::System.EventHandler (this.Randomizer_Click);
@@ -469,7 +469,7 @@ namespace TXM
 			this.buttonSave.Clicked += new global::System.EventHandler (this.SaveTournament_Click);
 			this.buttonNewPlayer.Clicked += new global::System.EventHandler (this.NewPlayer_Click);
 			this.buttonChangePairings.Clicked += new global::System.EventHandler (this.ChangePairings_Click);
-			this.buttonChangePlayer.Clicked += new global::System.EventHandler (this.ChangePlayer_Click);
+			this.buttonEditPlayer.Clicked += new global::System.EventHandler (this.ChangePlayer_Click);
 			this.buttonReset.Clicked += new global::System.EventHandler (this.ResetLastResults_Click);
 		}
 	}

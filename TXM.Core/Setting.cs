@@ -8,6 +8,10 @@ namespace TXM.Core
 {
 	public sealed class Settings
 	{
+		//TODO: Textfarbe speichern
+		//TODO: Hintergrundbild speichern
+		//TODO: installierte Sprachen speichern
+
 		public string ActiveLanguage { get; set; }
 
 		#region Constants

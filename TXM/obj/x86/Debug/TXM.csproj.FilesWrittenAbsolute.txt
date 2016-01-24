@@ -6,3 +6,9 @@
 /Users/martin/Projekte/TXM/TXM/obj/x86/Debug/TXM.exe.mdb
 /Users/martin/Projekte/TXM/TXM/bin/Debug/TXM.Core.dll
 /Users/martin/Projekte/TXM/TXM/bin/Debug/TXM.Core.dll.mdb
+/Users/martin/Projects/TXM/TXM/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/martin/Projects/TXM/TXM/obj/x86/Debug/TXM.gtk-gui.gui.stetic
+/Users/martin/Projects/TXM/TXM/obj/x86/Debug/TXM.exe
+/Users/martin/Projects/TXM/TXM/obj/x86/Debug/TXM.exe.mdb
+/Users/martin/Projects/TXM/TXM/bin/Debug/TXM.Core.dll
+/Users/martin/Projects/TXM/TXM/bin/Debug/TXM.Core.dll.mdb

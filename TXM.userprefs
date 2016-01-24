@@ -2,7 +2,11 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="TXM/MainWindow.cs">
     <Files>
-      <File FileName="TXM/MainWindow.cs" Line="19" Column="1" />
+      <File FileName="TXM/MainWindow.cs" Line="233" Column="1" />
+      <File FileName="TXM/MainWindow.xaml.cs" Line="33" Column="30" />
+      <File FileName="TXM.Core/Controller.cs" Line="19" Column="31" />
+      <File FileName="TXM.Core/Setting.cs" Line="14" Column="3" />
+      <File FileName="TXM.Core/StaticLanguage.cs" Line="15" Column="61" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

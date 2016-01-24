@@ -37,9 +37,9 @@
         <property name="Label" translatable="yes">Load</property>
         <property name="ShortLabel" translatable="yes">Load</property>
       </action>
-      <action id="MenuSaveTournament">
+      <action id="MenuSave">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Save Tournament</property>
+        <property name="Label" translatable="yes">Save</property>
         <property name="ShortLabel" translatable="yes">Save Tournament</property>
         <signal name="Activated" handler="SaveTournament_Click" />
       </action>
@@ -110,7 +110,7 @@
         <property name="ShortLabel" translatable="yes">Print Pairings</property>
         <signal name="Activated" handler="PrintPairings_Click" />
       </action>
-      <action id="PrintPairingsWithResultsAction">
+      <action id="MenuPrintResults">
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Print Pairings with Results</property>
         <property name="ShortLabel" translatable="yes">Print Pairings with results</property>
@@ -151,9 +151,9 @@
         <property name="ShortLabel" translatable="yes">Tournament Settings</property>
         <signal name="Activated" handler="TournamentSettings_Click" />
       </action>
-      <action id="MenuChangePlayer">
+      <action id="MenuEditPlayer">
         <property name="Type">Action</property>
-        <property name="Label" translatable="yes">Change Player</property>
+        <property name="Label" translatable="yes">Edit Player</property>
         <property name="ShortLabel" translatable="yes">Change Player</property>
         <signal name="Activated" handler="ChangePlayer_Click" />
       </action>
@@ -304,7 +304,7 @@
                   <node type="Menuitem" action="MenuLoadTournament" />
                   <node type="Menuitem" action="MenuAutosavefile" />
                 </node>
-                <node type="Menuitem" action="MenuSaveTournament" />
+                <node type="Menuitem" action="MenuSave" />
                 <node type="Menu" action="MenuImportExport">
                   <node type="Menuitem" action="MenuImportT3" />
                   <node type="Menuitem" action="MenuExportT3" />
@@ -313,7 +313,7 @@
                 <node type="Menu" action="MenuPrint">
                   <node type="Menuitem" action="MenuPrintTable" />
                   <node type="Menuitem" action="MenuPrintPairings" />
-                  <node type="Menuitem" action="PrintPairingsWithResultsAction" />
+                  <node type="Menuitem" action="MenuPrintResults" />
                   <node type="Menuitem" action="MenuPrintScoresheet" />
                 </node>
                 <node type="Menuitem" action="MenuQuit" />
@@ -322,7 +322,7 @@
                 <node type="Menuitem" action="MenuChangePairings" />
                 <node type="Menuitem" action="MenuResetLastResults" />
                 <node type="Menuitem" action="MenuTournamentSettings" />
-                <node type="Menuitem" action="MenuChangePlayer" />
+                <node type="Menuitem" action="MenuEditPlayer" />
                 <node type="Menuitem" action="MenuRemovePlayer" />
                 <node type="Menuitem" action="MenuShow" />
               </node>
@@ -411,11 +411,11 @@
               </packing>
             </child>
             <child>
-              <widget class="Gtk.Button" id="buttonChangePlayer">
+              <widget class="Gtk.Button" id="buttonEditPlayer">
                 <property name="MemberName" />
                 <property name="CanFocus">True</property>
                 <property name="Type">TextOnly</property>
-                <property name="Label" translatable="yes">Change Player</property>
+                <property name="Label" translatable="yes">Edit Player</property>
                 <property name="UseUnderline">True</property>
                 <signal name="Clicked" handler="ChangePlayer_Click" />
               </widget>

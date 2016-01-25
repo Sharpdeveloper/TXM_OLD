@@ -97,7 +97,7 @@ namespace TXM.Core
 		/// <returns>the imported Tournament</returns>
 		public Tournament GOEPPImport ()
 		{
-			FileManager.AddFilter ("*.gip", "GÖPP Import Datei"); //ShouldBeTranslated
+			FileManager.AddFilter ("*.gip", "GÖPP Import Datei"); //TODO: Tranlsate
 			if (FileManager.Open (ActiveLanguage.GetTranslation(StaticLanguage.Open), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 				try {
 					List<string> gipFile = new List<string> ();
@@ -126,7 +126,7 @@ namespace TXM.Core
 					}
 					return tournament;
 				} catch {
-					ShowMessage ("Bitte eine gültige GÖPP Import Datei auswählen."); //ShouldBeTranslated
+					ShowMessage ("Bitte eine gültige GÖPP Import Datei auswählen."); //TODO: Tranlsate
 					return null;
 				}
 			}
@@ -156,7 +156,7 @@ namespace TXM.Core
 		/// <param name="tournament">Tournament.</param>
 		public void GOEPPExport (Tournament tournament)
 		{
-			FileManager.AddFilter ("*.gep", "GÖPP Export Datei"); //ShouldBeTranslated
+			FileManager.AddFilter ("*.gep", "GÖPP Export Datei"); //TODO: Tranlsate
 			if (FileManager.Save (ActiveLanguage.GetTranslation(StaticLanguage.Save), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 				string file = FileManager.FileName;
 				List<string> temp = new List<string> ();
@@ -177,7 +177,7 @@ namespace TXM.Core
 
 				if (!file.EndsWith (".gep"))
 					file += ".gep";
-				string line = "#GoePP-Exportdatei, " + tournament.GOEPPVersion + " Export vom " + DateTime.Now.ToShortDateString (); //ShouldBeTranslated
+				string line = "#GoePP-Exportdatei, " + tournament.GOEPPVersion + " Export vom " + DateTime.Now.ToShortDateString (); //TODO: Tranlsate
 				string sep = "||", rest = sep + 0 + sep + 0 + sep + 0 + sep + 0;
 				using (StreamWriter f = new StreamWriter (file, false, Encoding.GetEncoding (28591))) {
 					f.WriteLine (line + "||x");
@@ -392,7 +392,7 @@ namespace TXM.Core
 		/// <param name="players">Players.</param>
 		public static string TableForForum (Tournament tournament, List<Player> players)
 		{
-			//ShouldBeTranslated
+			//TODO: Tranlsate
 			string output = tournament.Name + " - Tabelle - Runde " + tournament.DisplayedRound + "\n[table][tr][td]Platz[/td][td]Name[/td][td]Siege[/td][td]mod. Siege[/td][td]Unentschieden[/td][td]Niederlagen[/td][td]Punkte[/td][td]HdS[/td][td]Stärke der Gegner[/td][/tr]\n";
 			for (int i = 1; i <= players.Count; i++) {
 				Player p = players [i - 1];
@@ -410,7 +410,7 @@ namespace TXM.Core
 		/// <param name="pairing">Pairing.</param>
 		public static string PairingForForum (Tournament tournament, List<Pairing> pairing)
 		{
-			//ShouldBeTranslated
+			//TODO: Tranlsate
 			string output = tournament.Name + " - Tabelle - Runde " + tournament.DisplayedRound + "\n[table][tr][td]Tisch Nr.[/td][td]Spieler 1[/td][td]Spieler 2[/td][td]Ergebnis[/td][/tr]\n";
 			for (int i = 1; i <= pairing.Count; i++) {
 				Pairing p = pairing [i - 1];
@@ -426,7 +426,7 @@ namespace TXM.Core
 		/// <param name="tournament">Tournament.</param>
 		public void Print (Tournament tournament)
 		{
-			//ShouldBeTranslated
+			//TODO: Tranlsate
 			string title = tournament.Name + " - Tabelle - Runde " + tournament.DisplayedRound; 
 
 			List<string> print = new List<string> ();
@@ -459,7 +459,7 @@ namespace TXM.Core
 		/// <param name="result">If set to <c>true</c> result will be printed too.</param>
 		public void Print (Tournament tournament, bool result)
 		{
-			//ShouldBeTranslated
+			//TODO: Tranlsate
 			string title;
 			if (result)
 				title = tournament.Name + " - Ergebnisse - Runde " + tournament.DisplayedRound;
@@ -500,7 +500,7 @@ namespace TXM.Core
 		/// <param name="tournament">Tournament.</param>
 		public void PrintScoreSheet (Tournament tournament)
 		{
-			//ShouldBeTranslated
+			//TODO: Tranlsate
 			string title = tournament.Name + " - Pairings - Round " + tournament.DisplayedRound;
 			List<string> print = new List<string> ();
 			string temp = "<!DOCTYPE html><html><head><title>" + title + "</title></head><body>";
@@ -549,7 +549,7 @@ namespace TXM.Core
 			if (AutosavePathExists)
 				Process.Start ("file://" + AutosavePath);
 			else
-				ShowMessage ("Es exisitiert kein Autosave Ordner."); //ShouldBeTranslated
+				ShowMessage ("Es exisitiert kein Autosave Ordner."); //TODO: Tranlsate
 		}
 
 		/// <summary>
@@ -558,12 +558,12 @@ namespace TXM.Core
 		public void DeleteAutosaveFolder ()
 		{
 			if (AutosavePathExists) {
-				if (ShowMessageWithOKCancel ("Are you sure to delete the Autosavefolder?")) { //ShouldBeTranslated
+				if (ShowMessageWithOKCancel ("Are you sure to delete the Autosavefolder?")) { //TODO: Tranlsate
 					Directory.Delete (AutosavePath, true);
-					ShowMessage ("Autosave Ordner wurde gelöscht."); //ShouldBeTranslated
+					ShowMessage ("Autosave Ordner wurde gelöscht."); //TODO: Tranlsate
 				}
 			} else
-				ShowMessage ("Es exisitiert kein Autosave Ordner."); //ShouldBeTranslated
+				ShowMessage ("Es exisitiert kein Autosave Ordner."); //TODO: Tranlsate
 		}
 
 		/// <summary>
@@ -647,7 +647,7 @@ namespace TXM.Core
 
 		public void NewImage ()
 		{
-			FileManager.AddFilter ("*.jpg;*.jpeg;*.png;*.tif;*.tiff", "Alle Bilderformate"); //ShouldBeTranslated
+			FileManager.AddFilter ("*.jpg;*.jpeg;*.png;*.tif;*.tiff", "Alle Bilderformate"); //TODO: Tranlsate
 			if (FileManager.Open (ActiveLanguage.GetTranslation(StaticLanguage.Open), ActiveLanguage.GetTranslation(StaticLanguage.Cancel))) {
 				string imageSrc = FileManager.FileName;
 				string newImageSrc = Path.Combine (SavePath, "background" + imageSrc.Remove (0, imageSrc.LastIndexOf (".")));

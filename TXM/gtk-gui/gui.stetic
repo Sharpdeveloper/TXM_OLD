@@ -155,7 +155,7 @@
         <property name="Type">Action</property>
         <property name="Label" translatable="yes">Edit Player</property>
         <property name="ShortLabel" translatable="yes">Change Player</property>
-        <signal name="Activated" handler="ChangePlayer_Click" />
+        <signal name="Activated" handler="EditPlayer_Click" />
       </action>
       <action id="MenuRemovePlayer">
         <property name="Type">Action</property>
@@ -417,7 +417,7 @@
                 <property name="Type">TextOnly</property>
                 <property name="Label" translatable="yes">Edit Player</property>
                 <property name="UseUnderline">True</property>
-                <signal name="Clicked" handler="ChangePlayer_Click" />
+                <signal name="Clicked" handler="EditPlayer_Click" />
               </widget>
               <packing>
                 <property name="Position">3</property>
@@ -469,6 +469,7 @@
                     <property name="Type">TextOnly</property>
                     <property name="Label" translatable="yes">Start Tournement</property>
                     <property name="UseUnderline">True</property>
+                    <signal name="Activated" handler="TournamentProcess_Click" />
                   </widget>
                   <packing>
                     <property name="Position">0</property>

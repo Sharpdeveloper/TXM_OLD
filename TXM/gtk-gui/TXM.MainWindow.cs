@@ -449,7 +449,7 @@ namespace TXM
 			this.MenuChangePairings.Activated += new global::System.EventHandler (this.ChangePairings_Click);
 			this.MenuResetLastResults.Activated += new global::System.EventHandler (this.ResetLastResults_Click);
 			this.MenuTournamentSettings.Activated += new global::System.EventHandler (this.TournamentSettings_Click);
-			this.MenuEditPlayer.Activated += new global::System.EventHandler (this.ChangePlayer_Click);
+			this.MenuEditPlayer.Activated += new global::System.EventHandler (this.EditPlayer_Click);
 			this.MenuRemovePlayer.Activated += new global::System.EventHandler (this.RemovePlayer_Click);
 			this.MenuTimer.Activated += new global::System.EventHandler (this.Timer_Click);
 			this.MenuRandomizer.Activated += new global::System.EventHandler (this.Randomizer_Click);
@@ -469,7 +469,7 @@ namespace TXM
 			this.buttonSave.Clicked += new global::System.EventHandler (this.SaveTournament_Click);
 			this.buttonNewPlayer.Clicked += new global::System.EventHandler (this.NewPlayer_Click);
 			this.buttonChangePairings.Clicked += new global::System.EventHandler (this.ChangePairings_Click);
-			this.buttonEditPlayer.Clicked += new global::System.EventHandler (this.ChangePlayer_Click);
+			this.buttonEditPlayer.Clicked += new global::System.EventHandler (this.EditPlayer_Click);
 			this.buttonReset.Clicked += new global::System.EventHandler (this.ResetLastResults_Click);
 		}
 	}

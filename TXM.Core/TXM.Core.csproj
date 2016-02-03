@@ -43,9 +43,9 @@
     <Compile Include="Interfaces\IFile.cs" />
     <Compile Include="Interfaces\IMessage.cs" />
     <Compile Include="Tournament.cs" />
-    <Compile Include="TournamentCut.cs" />
     <Compile Include="Round.cs" />
     <Compile Include="Timer.cs" />
+    <Compile Include="Interfaces\INewTournamentDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

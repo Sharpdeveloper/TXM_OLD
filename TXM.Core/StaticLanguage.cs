@@ -147,5 +147,6 @@ namespace TXM.Core
 		public static string Open = "Open";
 		public static string SetTime = "Set Time";
 		public static string VariableMinutes = "Variable";
+
 	}
 }

@@ -9,7 +9,8 @@ namespace TXM
 	public partial class MainWindow: Gtk.Window
 	{
 		private Controller controller;
-		private Language activeLanguage {get{ return controller.ActiveLanguage; }}
+
+		private Language activeLanguage { get { return controller.ActiveLanguage; } }
 
 		public MainWindow () : base (Gtk.WindowType.Toplevel)
 		{
@@ -30,21 +31,9 @@ namespace TXM
 		protected void NewTournament_Click (object sender, EventArgs e)
 		{
 			//TODO NewTournamentDialog anlegen
-//			if (activeTournament != null)
-//			{
-//				if (!io.ShowMessageWithOKCancel(lang.GetTranslation(StaticLanguage.Overwrite)))
-//					return;
-//			}
-//			NewTournamentDialog ntd = new NewTournamentDialog(lang);
-//			ntd.ShowDialog();
-//			if (ntd.NewTournament)
-//			{
-//				activeTournament = new Tournament2(ntd.GetName(), ntd.GetMaxSquadSize(), ntd.GetCut());
-//				SetGUIState(true);
-//				RefreshDataGridPairings(activeTournament.Pairings);
-//				RefreshDataGridPlayer(activeTournament.Participants);
-//				SetIO();
-//			}
+			//controller.NewTournament ();
+			//RefreshDataGridPairings(activeTournament.Pairings);
+			//RefreshDataGridPlayer(activeTournament.Participants);
 		}
 
 		protected void NewPlayer_Click (object sender, EventArgs e)
@@ -64,7 +53,7 @@ namespace TXM
 //				xwp.TableNr = npd.TableNr;
 //				xwp.Present = npd.Present();
 //				AddPlayer(xwp);
-				//TODO: AddPlayer in Controller einrichten
+			//TODO: AddPlayer in Controller einrichten
 			//TODO: Ansicht Refreshen
 //			}
 		}
@@ -246,6 +235,12 @@ namespace TXM
 			throw new NotImplementedException ();
 		}
 
+		//TODO DoubleClick on Player
+
+		//TODO Checkbox Player is here (X)
+
+		//TODO Edit Pairing (get results)
+
 		protected void TournamentProcess_Click (object sender, EventArgs e)
 		{
 			//TODO: im Controller je nach TurnierStatus reagieren. 
@@ -266,6 +261,10 @@ namespace TXM
 //			firststart = true;
 //			started = true;
 //			io.Save(activeTournament, true, ButtonGetResults.IsEnabled, ButtonNextRound.IsEnabled, ButtonCut.IsEnabled, lang.GetTranslation(StaticLanguage.TournamentStart));
+
+			//TODO New Seed
+			//RefreshDataGridPairings(pairings);
+			//AddRoundButton();
 //
 
 
@@ -278,7 +277,7 @@ namespace TXM
 		/// <summary>
 		/// Translate the UI to the choosen language
 		/// </summary>
-		private void SetLanguage()
+		private void SetLanguage ()
 		{
 			Menu30Minutes.Label = "30 " + activeLanguage.GetTranslation (StaticLanguage.Minutes);
 			Menu45Minutes.Label = "45 " + activeLanguage.GetTranslation (StaticLanguage.Minutes);
@@ -350,10 +349,47 @@ namespace TXM
 		/// </summary>
 		/// <param name="sender">Sender.</param>
 		/// <param name="e">E.</param>
-		private void Language_Click(object sender, EventArgs e)
+		private void Language_Click (object sender, EventArgs e)
 		{
-			controller.LoadLanguage(((Gtk.Action)sender).Label, false);
+			controller.LoadLanguage (((Gtk.Action)sender).Label, false);
 			SetLanguage ();
+		}
+
+
+		private void RefreshDataGridPlayer ()//List<Player> players)
+		{
+			//TODO REfresh Table
+//			DataGridPlayer.ItemsSource = null;
+//			DataGridPlayer.ItemsSource = players;
+//			dataView = CollectionViewSource.GetDefaultView(DataGridPlayer.ItemsSource);
+//			dataView.SortDescriptions.Clear();
+//
+//			activeTournament.Sort();
+//
+//			dataView.SortDescriptions.Add(new System.ComponentModel.SortDescription("Points", System.ComponentModel.ListSortDirection.Descending));
+//			dataView.SortDescriptions.Add(new System.ComponentModel.SortDescription("MarginOfVictory", System.ComponentModel.ListSortDirection.Descending));
+//			dataView.SortDescriptions.Add(new System.ComponentModel.SortDescription("PointsOfEnemies", System.ComponentModel.ListSortDirection.Descending));
+//			dataView.SortDescriptions.Add(new System.ComponentModel.SortDescription("Nr", System.ComponentModel.ListSortDirection.Ascending));
+//			dataView.Refresh();
+//			RefreshRanks();
+		}
+
+		private void RefreshDataGridPairings ()//List<Pairing> pairings)
+		{
+			//TODO REfresh Pairings
+//			DataGridPairing.ItemsSource = null;
+//			DataGridPairing.ItemsSource = pairings;
+		}
+
+		private void AddRoundButton (int actRound = -1)
+		{
+			//TODO AddRoundButton
+//			ListBoxItem newListItem = new ListBoxItem();
+//			if (actRound == -1)
+//				actRound = activeTournament.Rounds.Count;
+//			newListItem.Content = lang.GetTranslation(StaticLanguage.Round) + " " + actRound;
+//			newListItem.MouseUp += ButtonRound_Click;
+//			ListBoxRounds.Items.Add(newListItem);
 		}
 	}
 }

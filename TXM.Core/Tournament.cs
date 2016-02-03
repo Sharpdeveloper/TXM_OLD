@@ -32,7 +32,9 @@ namespace TXM.Core
 
 		public int DisplayedRound { get; set; }
 
-		public TournamentCut Cut { get; set; }
+		public bool Cut { get; set; }
+
+		public int CutTo { get; set; }
 
 		public bool CutStarted { get; internal set; }
 
@@ -76,6 +78,17 @@ namespace TXM.Core
 		#endregion
 
 		#region Constructors
+
+		public Tournament (string imperiumText, string byeText, string wonByeText)
+		{
+			Pairings = new List<Pairing> ();
+			Rounds = new List<Round> ();
+			Participants = new List<Player> ();
+			Nicknames = new List<string> ();
+			givenStartNr = new List<int> ();
+			Bye = new Player (byeText, imperiumText);
+			WonBye = new Player (wonByeText, imperiumText);
+		}
 
 		public Tournament (string name, int t3ID, string GOEPPversion, bool firstround, int maxSquadPoints, TournamentCut cut, string byeText, string wonByeText, string imperiumText)
 		{

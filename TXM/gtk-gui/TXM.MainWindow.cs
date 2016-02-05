@@ -341,9 +341,9 @@ namespace TXM
 			// Container child hbox1.Gtk.Box+BoxChild
 			this.buttonEditPlayer = new global::Gtk.Button ();
 			this.buttonEditPlayer.CanFocus = true;
-			this.buttonEditPlayer.Name = "buttonChangePlayer";
+			this.buttonEditPlayer.Name = "buttonEditPlayer";
 			this.buttonEditPlayer.UseUnderline = true;
-			this.buttonEditPlayer.Label = global::Mono.Unix.Catalog.GetString ("Change Player");
+			this.buttonEditPlayer.Label = global::Mono.Unix.Catalog.GetString ("Edit Player");
 			this.hbox1.Add (this.buttonEditPlayer);
 			global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.hbox1 [this.buttonEditPlayer]));
 			w6.Position = 3;
@@ -471,6 +471,7 @@ namespace TXM
 			this.buttonChangePairings.Clicked += new global::System.EventHandler (this.ChangePairings_Click);
 			this.buttonEditPlayer.Clicked += new global::System.EventHandler (this.EditPlayer_Click);
 			this.buttonReset.Clicked += new global::System.EventHandler (this.ResetLastResults_Click);
+			this.buttonTournament.Activated += new global::System.EventHandler (this.TournamentProcess_Click);
 		}
 	}
 }

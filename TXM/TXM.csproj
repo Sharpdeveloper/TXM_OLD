@@ -65,9 +65,12 @@
     <Compile Include="MultiMessage.cs" />
     <Compile Include="gtk-gui\TXM.MainWindow.cs" />
     <Compile Include="MainWindow.xaml.cs" />
-    <Compile Include="Controller.cs" />
     <Compile Include="IO.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="PairingTreeNode.cs" />
+    <Compile Include="PlayerTreeNode.cs" />
+    <Compile Include="NewTournamentDialog.cs" />
+    <Compile Include="gtk-gui\TXM.NewTournamentDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>

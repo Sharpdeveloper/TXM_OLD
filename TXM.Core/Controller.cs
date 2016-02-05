@@ -3,72 +3,90 @@ using System.Collections.Generic;
 
 namespace TXM.Core
 {
-	public class Controller
-	{
-		public Tournament ActiveTournament { get; private set; }
+    public class Controller
+    {
+        public Tournament ActiveTournament { get; private set; }
 
-		public Timer ActiveTimer { get; private set; }
+        public Timer ActiveTimer { get; private set; }
 
-		public Language ActiveLanguage { get { return activeIO.ActiveLanguage; } }
+        public Language ActiveLanguage { get { return activeIO.ActiveLanguage; } }
 
-		public bool TournamentStarted { get; private set; }
+        public bool TournamentStarted { get; private set; }
 
-		public bool LastRound { get; set; }
+        public bool LastRound { get; set; }
 
-		private IO activeIO;
-		private Settings activeSettings;
+        public List<Pairing> ActivePairings{ get; set; }
 
-		public Controller (IFile fileManager, IMessage messageManager)
-		{
-			activeIO = new IO (fileManager, messageManager);
-			ActiveTimer = new Timer ();
-			//TODO: Einstellungen lesen
-		}
+        public List<Player> ActiveTable{ get; set; }
 
-		public void LoadLanguage (string languageName, bool download)
-		{
-			activeIO.LoadLanguage (languageName, download);
-		}
+        public string Title
+        {
+            get
+            {
+                if (ActiveTournament != null)
+                    return ActiveTournament.Name + " - TXM";
+                else
+                    return "TXM";
+            }
+        }
 
-		/// <summary>
-		/// Creates a new Tournament
-		/// </summary>
-		/// <param name="iNewTournamentDialog">An Dialog which implents the INewTournamentDialog interface.</param>
-		public void NewTournament (INewTournamentDialog iNewTournamentDialog)
-		{
-			//Check if there is an existing Tournament
-			if (ActiveTournament != null) {
-				if (!activeIO.ShowMessageWithOKCancel (ActiveLanguage.GetTranslation (StaticLanguage.Overwrite)))
-					return;
-			}
+        private IO activeIO;
+        private Settings activeSettings;
 
-			//Set Language and show Dialog
-			iNewTournamentDialog.DisplayedLanguage = ActiveLanguage;
-			iNewTournamentDialog.ShowDialog ();
+        public Controller(IFile fileManager, IMessage messageManager)
+        {
+            activeIO = new IO(fileManager, messageManager);
+            ActiveTimer = new Timer();
+            //TODO: Einstellungen lesen
+        }
 
-			//if a new Tournament should be created, get the information from the Dialog
-			if (iNewTournamentDialog.OK) {
-				ActiveTournament = new Tournament (ActiveLanguage.GetTranslation (StaticLanguage.Imperium), ActiveLanguage.GetTranslation (StaticLanguage.Bye), ActiveLanguage.GetTranslation (StaticLanguage.WonBye)) {
-					Name = iNewTournamentDialog.TournamentName,
-					MaxSquadPoints = iNewTournamentDialog.MaxPoints,
-					Cut = iNewTournamentDialog.Cut,
-					CutTo = iNewTournamentDialog.CutTo
-				}; 
-			}
-		}
+        public void LoadLanguage(string languageName, bool download)
+        {
+            activeIO.LoadLanguage(languageName, download);
+        }
+
+        /// <summary>
+        /// Creates a new Tournament
+        /// </summary>
+        /// <param name="iNewTournamentDialog">An Dialog which implents the INewTournamentDialog interface.</param>
+        public void NewTournament(INewTournamentDialog iNewTournamentDialog)
+        {
+            //Check if there is an existing Tournament
+            if (ActiveTournament != null)
+            {
+                if (!activeIO.ShowMessageWithOKCancel(ActiveLanguage.GetTranslation(StaticLanguage.Overwrite)))
+                    return;
+            }
+
+            //Set Language and show Dialog
+            iNewTournamentDialog.DisplayedLanguage = ActiveLanguage;
+            iNewTournamentDialog.ShowDialog();
+
+            //if a new Tournament should be created, get the information from the Dialog
+            if (iNewTournamentDialog.OK)
+            {
+                ActiveTournament = new Tournament(ActiveLanguage.GetTranslation(StaticLanguage.Imperium), ActiveLanguage.GetTranslation(StaticLanguage.Bye), ActiveLanguage.GetTranslation(StaticLanguage.WonBye))
+                {
+                    Name = iNewTournamentDialog.TournamentName,
+                    MaxSquadPoints = iNewTournamentDialog.MaxPoints,
+                    Cut = iNewTournamentDialog.Cut,
+                    CutTo = iNewTournamentDialog.CutTo
+                }; 
+            }
+        }
 
 
-		/// <summary>
-		/// Save the tournament
-		/// </summary>
-		public void Save ()
-		{
-			activeIO.Save (ActiveTournament, false);
-		}
+        /// <summary>
+        /// Save the tournament
+        /// </summary>
+        public void Save()
+        {
+            activeIO.Save(ActiveTournament, false);
+        }
 
-		public void Load (bool autosave = false)
-		{
-			//TODO: Load implementieren
+        public void Load(bool autosave = false)
+        {
+            //TODO: Load implementieren
 //			Nullable<bool> overwrite = true;
 //			string filename = "";
 //			ListBoxRounds.Items.Clear();
@@ -119,18 +137,18 @@ namespace TXM.Core
 //					SetIO();
 //				}
 //			}
-		}
+        }
 
-		public void GetSeed (bool cut = false)
-		{
-			//TODO: Seeding
-			//List<Pairing> pairings = activeTournament.GetSeed(firststart, cut);
-			//activeIO.Save(activeTournament, true, lang.GetTranslation(StaticLanguage.Pairings) + "_" + lang.GetTranslation(StaticLanguage.Round) + activeTournament.Rounds.Count);
-		}
+        public void GetSeed(bool cut = false)
+        {
+            //TODO: Seeding
+            //List<Pairing> pairings = activeTournament.GetSeed(firststart, cut);
+            //activeIO.Save(activeTournament, true, lang.GetTranslation(StaticLanguage.Pairings) + "_" + lang.GetTranslation(StaticLanguage.Round) + activeTournament.Rounds.Count);
+        }
 
-		public void GetResults ()
-		{
-			//TODO: GetResults
+        public void GetResults()
+        {
+            //TODO: GetResults
 //			List<Pairing> pairings = (List<Pairing>)DataGridPairing.ItemsSource;
 //			if (pairings.Count == 1)
 //				end = true;
@@ -178,7 +196,7 @@ namespace TXM.Core
 //			RefreshDataGridPlayer(activeTournament.Participants);
 //			io.Save(activeTournament, true, ButtonGetResults.IsEnabled, ButtonNextRound.IsEnabled, ButtonCut.IsEnabled, lang.GetTranslation(StaticLanguage.Result) + "_" + lang.GetTranslation(StaticLanguage.Round) + activeTournament.Rounds.Count);
 
-			//private bool CheckResults(List<Pairing> pairings)
+            //private bool CheckResults(List<Pairing> pairings)
 //			{
 //				foreach (Pairing p in pairings)
 //				{
@@ -190,17 +208,17 @@ namespace TXM.Core
 //				return true;
 //			}
 
-			//TODO Refresh Ranks
+            //TODO Refresh Ranks
 //			private void RefreshRanks()
 //			{
 //				for (int i = 1; i <= activeTournament.Participants.Count; i++)
 //					activeTournament.Participants[i - 1].Rank = i;
 //			}
-		}
+        }
 
-		public void EditPlayer ()
-		{
-			//TODO Edit Player
+        public void EditPlayer()
+        {
+            //TODO Edit Player
 //			if (DataGridPlayer.SelectedIndex >= 0)
 //			{
 //				Player player = activeTournament.Participants[DataGridPlayer.SelectedIndex];
@@ -225,7 +243,27 @@ namespace TXM.Core
 //					RefreshDataGridPlayer(activeTournament.Participants);
 //				}
 //			}
-		}
-	}
+        }
+
+        public void RefreshActiveTable()
+        {
+            ActiveTable = new List<Player>();
+            if (ActiveTournament != null)
+            {
+                foreach (var p in ActiveTournament.Participants)
+                    ActiveTable.Add(p);
+            }
+        }
+
+        public void RefreshActivePairings()
+        {
+            ActivePairings = new List<Pairing>();
+            if (ActiveTournament != null)
+            {
+                foreach (var p in ActiveTournament.Pairings)
+                    ActivePairings.Add(p);
+            }
+        }
+    }
 }
 

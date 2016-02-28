@@ -159,7 +159,7 @@ namespace TXM.Core
                 splitedLine[i] = line.Substring(sepBegin, sepEnd - sepBegin);
                 sepBegin = sepEnd + 2;
             }
-            return new Player(Int32.Parse(splitedLine[0]), splitedLine[1], splitedLine[2], splitedLine[3], splitedLine[4], splitedLine[5], splitedLine[6], Int32.Parse(splitedLine[9]) == 1, Int32.Parse(splitedLine[7]) == 3);
+            return new Player(splitedLine[0], splitedLine[1], splitedLine[2], splitedLine[3], splitedLine[4], splitedLine[5], splitedLine[6], Int32.Parse(splitedLine[9]) == 1, Int32.Parse(splitedLine[7]) == 3);
         }
 
         /// <summary>

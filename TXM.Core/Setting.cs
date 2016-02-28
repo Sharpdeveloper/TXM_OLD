@@ -6,48 +6,54 @@ using System.Threading.Tasks;
 
 namespace TXM.Core
 {
-	public sealed class Settings
-	{
-		//TODO: Textfarbe speichern
-		//TODO: Hintergrundbild speichern
-		//TODO: installierte Sprachen speichern
+    public sealed class Settings
+    {
+        //TODO: Textfarbe speichern
+        //TODO: Hintergrundbild speichern
+        //TODO: installierte Sprachen speichern
 
-		public string ActiveLanguage { get; set; }
+        public string ActiveLanguage { get; set; }
 
-		#region Constants
+        #region Constants
 
-		private static string fileextension = ".txmb2";
-		private static string languagesFile = "http://apps.piratesoftatooine.de/Languages/Languages.txt";
-		private static string languageExtension = ".txmlang";
+        private static string fileextension = ".txmb3";
+        private static string languagesFile = "http://apps.piratesoftatooine.de/Languages/Languages.txt";
+        private static string languageExtension = ".txmlang";
 
-		#endregion
+        #endregion
 
-		public Settings ()
-		{
-			ActiveLanguage = "default";
-		}
+        public Settings()
+        {
+            ActiveLanguage = "default";
+        }
 
-		#region Properties
+        #region Properties
 
-		public static string LanguageList {
-			get {
-				return languagesFile;
-			}
-		}
+        public static string LanguageList
+        {
+            get
+            {
+                return languagesFile;
+            }
+        }
 
-		public static string FileExtension {
-			get {
-				return fileextension;
-			}
-		}
+        public static string FileExtension
+        {
+            get
+            {
+                return fileextension;
+            }
+        }
 
-		public static string LanguageExtension {
-			get {
-				return languageExtension;
-			}
-		}
+        public static string LanguageExtension
+        {
+            get
+            {
+                return languageExtension;
+            }
+        }
 
-		#endregion
+        #endregion
 
-	}
+    }
 }

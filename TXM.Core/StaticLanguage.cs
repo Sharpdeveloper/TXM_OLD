@@ -77,7 +77,6 @@ namespace TXM.Core
         public static string WonBye = "Won Bye";
         public static string Paid = "Paid";
         public static string Faction = "Faction";
-        public static string DuplicateNickname = "This nickname is already taken.";
         public static string Cut = "Cut";
         public static string NoCut = "NoCut";
         public static string TOP = "Top";
@@ -112,8 +111,8 @@ namespace TXM.Core
         public static string LoosesShort = "L";
         public static string MarginOfVictoryShort = "MoV";
         public static string StrengthOfScheduleShort = "SoS";
-        public static string IsPresent = "!";
-        public static string TableNr = "T-No.";
+        public static string IsPresentShort = "!";
+        public static string TableNrShort = "T-No.";
         public static string Destroyed = "Destroyed";
         public static string DoYouWant = "Do you want";
         public static string ToRemove = "to remove";
@@ -148,5 +147,20 @@ namespace TXM.Core
         public static string RankShort = "#";
         public static string MiniaturesGame = "Miniatures Game";
         public static string TournamentOrganizer = "Tournament Organizer";
+        public static string Lastname = "Lastname";
+        public static string City = "City";
+        public static string T3ID = "T3 ID";
+        public static string Advanced = "Advanced";
+        public static string Basic = "Basic";
+        public static string Disqualified = "Disqualified";
+        public static string IsPresent = "IsPresent";
+        public static string SquadListGiven = "Squadlist given";
+        public static string InfoName1 = "Nickname or ForeName and";
+        public static string InfoName2 = "Lastname has to be given.";
+        public static string InfoTNo1 = "If the player needs a fixed";
+        public static string InfoTNo2 = "table (e. g. wheelchair users).";
+        public static string StartTournamentFirst = "You have to start a tournament first";
+        public static string TournamentStarted = "Tournament is already started. You can't add more players";
+        public static string NoT3Tournament = "Your current tournament wasn't imported from T3. So it can't exported to T3.";
     }
 }

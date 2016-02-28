@@ -49,7 +49,7 @@ namespace TXM.Core
         /// Creates a new Tournament
         /// </summary>
         /// <param name="iNewTournamentDialog">An Dialog which implents the INewTournamentDialog interface.</param>
-        public void NewTournament(INewTournamentDialog iNewTournamentDialog)
+        public void NewTournament(ITournamentDialog itd)
         {
             //Check if there is an existing Tournament
             if (ActiveTournament != null)
@@ -59,20 +59,65 @@ namespace TXM.Core
             }
 
             //Set Language and show Dialog
-            iNewTournamentDialog.DisplayedLanguage = ActiveLanguage;
-            iNewTournamentDialog.ShowDialog();
+            itd.DisplayedLanguage = ActiveLanguage;
+            itd.NewTournament = true;
+            itd.MaxPoints = 100;
+            itd.ShowDialog();
 
             //if a new Tournament should be created, get the information from the Dialog
-            if (iNewTournamentDialog.OK)
+            if (itd.OK)
             {
                 ActiveTournament = new Tournament(ActiveLanguage.GetTranslation(StaticLanguage.Imperium), ActiveLanguage.GetTranslation(StaticLanguage.Bye), ActiveLanguage.GetTranslation(StaticLanguage.WonBye))
                 {
-                    Name = iNewTournamentDialog.TournamentName,
-                    MaxSquadPoints = iNewTournamentDialog.MaxPoints,
-                    Cut = iNewTournamentDialog.Cut,
-                    CutTo = iNewTournamentDialog.CutTo
+                    Name = itd.TournamentName,
+                    MaxSquadPoints = itd.MaxPoints,
+                    Cut = itd.Cut,
+                    CutTo = itd.CutTo
                 }; 
             }
+        }
+
+        public bool AddPlayer(IPlayerDialog ipd)
+        {
+            if (ActiveTournament == null)
+            {
+                ipd.Delete();
+
+                activeIO.ShowMessage(ActiveLanguage.GetTranslation(StaticLanguage.StartTournamentFirst));
+                return false;
+            }
+            if (ActiveTournament.ActiveRound != 0)
+            {
+                ipd.Delete();
+
+                activeIO.ShowMessage(ActiveLanguage.GetTranslation(StaticLanguage.TournamentStarted));
+                return false;
+            }
+            ipd.DisplayedLanguage = ActiveLanguage;
+            ipd.NewPlayer = true;
+            ipd.AddFaction(ActiveLanguage.GetTranslation(StaticLanguage.Imperium));
+            ipd.AddFaction(ActiveLanguage.GetTranslation(StaticLanguage.Rebels));
+            ipd.AddFaction(ActiveLanguage.GetTranslation(StaticLanguage.Scum));
+            ipd.ShowDialog();
+                
+            if (ipd.OK)
+            {
+                var p = new Player();
+                p.Name = ipd.LastName;
+                p.Forename = ipd.ForeName;
+                p.Faction = ipd.Faction;
+                p.Paid = ipd.Paid;
+                p.SquadListGiven = ipd.SquadlistGiven;
+                p.WonBye = ipd.WonBye;
+                p.Nickname = ipd.NickName;
+                p.TableNr = ipd.TableNr; 
+                p.Team = ipd.Team;
+                p.Present = ipd.Present;
+
+                ActiveTournament.AddPlayer(p);
+                return true;
+            }
+            return false;
         }
 
 
@@ -216,6 +261,29 @@ namespace TXM.Core
 //			}
         }
 
+        public bool ImportT3()
+        {
+            if (ActiveTournament != null)
+            {
+                if (!activeIO.ShowMessageWithOKCancel(ActiveLanguage.GetTranslation(StaticLanguage.Overwrite)))
+                    return false;
+            }
+            ActiveTournament = activeIO.GOEPPImport();
+            return ActiveTournament != null;
+        }
+
+        public void ExportT3()
+        {
+            if (ActiveTournament == null)
+                return;
+            if (ActiveTournament.GOEPPVersion == null)
+            {
+                activeIO.ShowMessage(ActiveLanguage.GetTranslation(StaticLanguage.NoT3Tournament));
+                return;
+            }
+            activeIO.GOEPPExport(ActiveTournament);
+        }
+
         public void EditPlayer()
         {
             //TODO Edit Player
@@ -250,6 +318,7 @@ namespace TXM.Core
             ActiveTable = new List<Player>();
             if (ActiveTournament != null)
             {
+                ActiveTournament.Sort();
                 foreach (var p in ActiveTournament.Participants)
                     ActiveTable.Add(p);
             }

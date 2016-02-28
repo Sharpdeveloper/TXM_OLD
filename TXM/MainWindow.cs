@@ -33,7 +33,7 @@ namespace TXM
 
         protected void NewTournament_Click(object sender, EventArgs e)
         {
-            controller.NewTournament(new NewTournamentDialog());
+            controller.NewTournament(new TournamentDialog());
             Title = controller.Title;
             RefreshDataGridPairings();
             RefreshDataGridPlayer();
@@ -41,24 +41,8 @@ namespace TXM
 
         protected void NewPlayer_Click(object sender, EventArgs e)
         {
-            //TODO: NewPlayerDialog anlegen
-//			NewPlayerDialog npd = new NewPlayerDialog(activeTournament.Nicknames, lang);
-//			npd.ShowDialog();
-//			if (npd.DialogReturn)
-//			{
-//				Player xwp = new Player(npd.GetNickName(), npd.SquadPoints, Player.StringToFaction(npd.GetFaction()));
-//				xwp.Team = npd.GetTeam();
-//				xwp.Name = npd.GetName();
-//				xwp.Forename = npd.GetForename();
-//				xwp.WonFreeticket = npd.FreeTicket();
-//				xwp.SquadListGiven = npd.SquadListGiven();
-//				xwp.Payed = npd.Paid();
-//				xwp.TableNr = npd.TableNr;
-//				xwp.Present = npd.Present();
-//				AddPlayer(xwp);
-            //TODO: AddPlayer in Controller einrichten
-            //TODO: Ansicht Refreshen
-//			}
+            if (controller.AddPlayer(new PlayerDialog()))
+                RefreshDataGridPlayer();
         }
 
         protected void LoadTournament_Click(object sender, EventArgs e)
@@ -78,21 +62,13 @@ namespace TXM
 
         protected void ImportT3_Click(object sender, EventArgs e)
         {
-            //TODO: T3 Import
-//			activeTournament = io.GOEPPImport();
-//			if (activeTournament != null)
-//			{
-//				SetGUIState(true);
-//				DataGridPlayer.ItemsSource = activeTournament.Participants;
-//				RefreshDataGridPlayer(activeTournament.Participants);
-//				SetIO();
-//			}
+            if (controller.ImportT3())
+                RefreshDataGridPlayer();
         }
 
         protected void ExportT3_Click(object sender, EventArgs e)
         {
-            //TODO: T3 Export
-            //io.GOEPPExport(activeTournament);
+            controller.ExportT3();
         }
 
         protected void ExportBBCode_Click(object sender, EventArgs e)
@@ -359,34 +335,33 @@ namespace TXM
                 dataGridPairings.RemoveColumn(col);
             
             CellRendererText editableScore1 = new CellRendererText();
-            //editableScore1.Edited += new EditedHandler (NumberCellEditedScore1);
+            //TODO editableScore1.Edited += new EditedHandler (NumberCellEditedScore1);
             editableScore1.Editable = true;
 
             CellRendererText editableScore2 = new CellRendererText();
-            //editableScore2.Edited += new EditedHandler (NumberCellEditedScore2);
+            //TODO editableScore2.Edited += new EditedHandler (NumberCellEditedScore2);
             editableScore2.Editable = true;
 
             CellRendererText editableBool = new CellRendererText();
-            //editableBool.Edited += new EditedHandler (BoolCellEdited);
+            //TODO editableBool.Edited += new EditedHandler (BoolCellEdited);
             editableBool.Editable = true;
 
             dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.RankShort), new Gtk.CellRendererText(), "text", 0);
             dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Name), new Gtk.CellRendererText(), "text", 1);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.IsPresent), new Gtk.CellRendererText(), "text", 2);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.IsPresentShort), new Gtk.CellRendererText(), "text", 2);
             dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Team), new Gtk.CellRendererText(), "text", 3);
             dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Faction), new Gtk.CellRendererText(), "text", 4);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.SquadPointsShort), new Gtk.CellRendererText(), "text", 5);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Points), new Gtk.CellRendererText(), "text", 6);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.WinsShort), new Gtk.CellRendererText(), "text", 7);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.ModifiedWinsShort), new Gtk.CellRendererText(), "text", 8);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.DrawShort), new Gtk.CellRendererText(), "text", 9);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.LoosesShort), new Gtk.CellRendererText(), "text", 10);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.MarginOfVictoryShort), new Gtk.CellRendererText(), "text", 11);
-            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.StrengthOfScheduleShort), new Gtk.CellRendererText(), "text", 12);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Points), new Gtk.CellRendererText(), "text", 5);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.WinsShort), new Gtk.CellRendererText(), "text", 6);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.ModifiedWinsShort), new Gtk.CellRendererText(), "text", 7);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.DrawShort), new Gtk.CellRendererText(), "text", 8);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.LoosesShort), new Gtk.CellRendererText(), "text", 9);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.MarginOfVictoryShort), new Gtk.CellRendererText(), "text", 10);
+            dataGridPlayer.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.StrengthOfScheduleShort), new Gtk.CellRendererText(), "text", 11);
 
             dataGridPlayer.ShowAll();
 
-            dataGridPairings.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.TableNr), new Gtk.CellRendererText(), "text", 0);
+            dataGridPairings.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.TableNrShort), new Gtk.CellRendererText(), "text", 0);
             dataGridPairings.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Player) + " 1", new Gtk.CellRendererText(), "text", 1);
             dataGridPairings.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Player) + " 2", new Gtk.CellRendererText(), "text", 2);
             dataGridPairings.AppendColumn(activeLanguage.GetTranslation(StaticLanguage.Destroyed) + " (" + activeLanguage.GetTranslation(StaticLanguage.Player).Remove(1) + "1)", editableScore1, "text", 3);

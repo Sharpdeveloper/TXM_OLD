@@ -42,6 +42,8 @@ namespace TXM.Core
 
         public List<Pairing> Pairings { get; set; }
 
+        public int ActiveRound { get; set; }
+
         #endregion
 
         #region GUI_State
@@ -54,7 +56,7 @@ namespace TXM.Core
 
         #endregion
 
-        #region T3 INformation
+        #region T3 Information
 
         public int T3ID { get; set; }
 
@@ -88,6 +90,7 @@ namespace TXM.Core
             givenStartNr = new List<int>();
             Bye = new Player(byeText, imperiumText);
             WonBye = new Player(wonByeText, imperiumText);
+            ActiveRound = 0;
         }
 
         public Tournament(string name, int t3ID, string GOEPPversion, bool firstround, int maxSquadPoints, string byeText, string wonByeText, string imperiumText)
@@ -107,6 +110,7 @@ namespace TXM.Core
             WonFreeticketsCalculated = false;
             Pairings = new List<Pairing>();
             Rounds = new List<Round>();
+            ActiveRound = 0;
         }
 
         public Tournament(int t3ID, string name, string byeText, string wonByeText, string imperiumText, string GOEPPversion = "")
@@ -291,7 +295,7 @@ namespace TXM.Core
                             Pairings.Add(p);
                             ListOfPlayers.Remove(p.Player1);
                             ListOfPlayers.Remove(p.Player2);
-                            if (p.Player1.Freeticket)
+                            if (p.Player1.Bye)
                                 p.ResultEdited = true;
                             pos++;
                         }
@@ -326,7 +330,7 @@ namespace TXM.Core
                         {
                             Pairings[pos].Player1 = ListOfPlayers[0];
                             Pairings[pos].Player2 = Bye;
-                            Pairings[pos].Player1.Freeticket = true;
+                            Pairings[pos].Player1.Bye = true;
                             Pairings[pos].ResultEdited = true;
                             ListOfPlayers.Remove(Pairings[pos].Player1);
                             pos++;
@@ -397,7 +401,7 @@ namespace TXM.Core
                                 Pairings.Add(new Pairing());
                                 Pairings[pos].Player1 = PointGroup[i][0];
                                 Pairings[pos].Player2 = Bye;
-                                Pairings[pos].Player1.Freeticket = true;
+                                Pairings[pos].Player1.Bye = true;
                                 Pairings[pos].ResultEdited = true;
                             }
                             else
@@ -444,7 +448,7 @@ namespace TXM.Core
         {
             foreach (Pairing p in Pairings)
             {
-                if (p.Player1.TableNr != 0 && p.Player1.Freeticket == false && p.TableNr != p.Player1.TableNr)
+                if (p.Player1.TableNr != 0 && p.Player1.Bye == false && p.TableNr != p.Player1.TableNr)
                 {
                     if ((p.Player2.TableNr != 0 && p.Player1.TableNr < p.Player2.TableNr) || p.Player2.TableNr == 0)
                     {
@@ -485,7 +489,7 @@ namespace TXM.Core
             {
                 p.Player1Score = 0;
                 p.Player2Score = 0;
-                if (p.Player1.Freeticket || (p.Player1.WonFreeticket && FirstRound))
+                if (p.Player1.Bye || (p.Player1.WonBye && FirstRound))
                     p.ResultEdited = true;
                 else
                     p.ResultEdited = false;
@@ -610,7 +614,7 @@ namespace TXM.Core
             WonFreetickets = 0;
             foreach (Player p in Participants)
             {
-                if (p.WonFreeticket)
+                if (p.WonBye)
                     WonFreetickets++;
             }
         }
@@ -620,7 +624,7 @@ namespace TXM.Core
             List<Player> result = new List<Player>();
             for (int i = 0; i < ListOfPlayers.Count; i++)
             {
-                if (ListOfPlayers[i].WonFreeticket)
+                if (ListOfPlayers[i].WonBye)
                 {
                     result.Add(ListOfPlayers[i]);
                     ListOfPlayers.RemoveAt(i);
@@ -664,30 +668,30 @@ namespace TXM.Core
                     Pairings[player1Game].Player2 = player2;
                 }
             }
-            Pairings[player1Game].Player1.Freeticket = false;
-            Pairings[player1Game].Player2.Freeticket = false;
-            Pairings[player2Game].Player1.Freeticket = false;
-            Pairings[player2Game].Player2.Freeticket = false;
+            Pairings[player1Game].Player1.Bye = false;
+            Pairings[player1Game].Player2.Bye = false;
+            Pairings[player2Game].Player1.Bye = false;
+            Pairings[player2Game].Player2.Bye = false;
             Pairings[player1Game].ResultEdited = false;
             Pairings[player2Game].ResultEdited = false;
             if (Pairings[player1Game].Player1 == Bye)
             {
-                Pairings[player1Game].Player2.Freeticket = true;
+                Pairings[player1Game].Player2.Bye = true;
                 Pairings[player1Game].ResultEdited = true;
             }
             else if (Pairings[player1Game].Player2 == Bye)
             {
-                Pairings[player1Game].Player1.Freeticket = true;
+                Pairings[player1Game].Player1.Bye = true;
                 Pairings[player1Game].ResultEdited = true;
             }
             else if (Pairings[player2Game].Player1 == Bye)
             {
-                Pairings[player2Game].Player2.Freeticket = true;
+                Pairings[player2Game].Player2.Bye = true;
                 Pairings[player2Game].ResultEdited = true;
             }
             else if (Pairings[player2Game].Player2 == Bye)
             {
-                Pairings[player2Game].Player1.Freeticket = true;
+                Pairings[player2Game].Player1.Bye = true;
                 Pairings[player2Game].ResultEdited = true;
             }
         }
@@ -705,7 +709,7 @@ namespace TXM.Core
             {
                 foreach (var player in (Participants))
                 {
-                    if (player.WonFreeticket)
+                    if (player.WonBye)
                     {
                         player.AddLastEnemy(GetStrongestUnplayedEnemy(player));
                     }

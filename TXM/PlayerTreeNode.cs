@@ -10,65 +10,45 @@ namespace TXM
         public int Rank { get; private set; }
 
         [Gtk.TreeNodeValue(Column = 1)]
-        public int Nr { get; private set; }
-
-        [Gtk.TreeNodeValue(Column = 2)]
-        public string Forename { get; private set; }
-
-        [Gtk.TreeNodeValue(Column = 3)]
         public string Nickname { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 4)]
-        public string WonFreeticket { get; private set; }
+        [Gtk.TreeNodeValue(Column = 2)]
+        public string Present { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 5)]
-        public string Paid { get; private set; }
-
-        [Gtk.TreeNodeValue(Column = 6)]
-        public string ArmyListGiven { get; private set; }
-
-        [Gtk.TreeNodeValue(Column = 7)]
+        [Gtk.TreeNodeValue(Column = 3)]
         public string Team { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 8)]
+        [Gtk.TreeNodeValue(Column = 4)]
         public string Faction { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 9)]
-        public int Squad { get; private set; }
-
-        [Gtk.TreeNodeValue(Column = 10)]
+        [Gtk.TreeNodeValue(Column = 5)]
         public int Points { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 11)]
+        [Gtk.TreeNodeValue(Column = 6)]
         public int Wins { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 12)]
+        [Gtk.TreeNodeValue(Column = 7)]
         public int ModifiedWins { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 13)]
+        [Gtk.TreeNodeValue(Column = 8)]
         public int Draws { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 14)]
+        [Gtk.TreeNodeValue(Column = 9)]
         public int Looses { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 15)]
+        [Gtk.TreeNodeValue(Column = 10)]
         public int MoV { get; private set; }
 
-        [Gtk.TreeNodeValue(Column = 16)]
+        [Gtk.TreeNodeValue(Column = 11)]
         public int SoS { get; private set; }
 
         public PlayerTreeNode(Player p)
         {
             Rank = p.Rank;
-            Nr = p.Nr;
-            Forename = p.Forename;
-            Nickname = p.Nickname;
-            WonFreeticket = p.WonFreeticket ? "X" : "";
-            Paid = p.Payed ? "X" : "";
-            ArmyListGiven = p.SquadListGiven ? "X" : "";
+            Nickname = p.DisplayName;
+            Present = p.Present ? "X" : "";
             Team = p.Team;
             Faction = p.Faction;
-            Squad = p.PointOfSquad;
             Points = p.Points;
             Wins = p.Wins;
             ModifiedWins = p.ModifiedWins;

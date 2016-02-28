@@ -4,49 +4,51 @@ using TXM.Core;
 
 namespace TXM
 {
-    public partial class NewTournamentDialog : Gtk.Dialog, INewTournamentDialog
+    public partial class TournamentDialog : Gtk.Dialog, ITournamentDialog
     {
         public bool OK { get; set; }
 
-        public string TournamentName { get; set; }
+        private string tournamentName = "";
+        private int maxPoints = 100;
+        private bool cut = false;
+        private int cutTo = 0;
 
-        public int MaxPoints { get; set; }
+        public string TournamentName { get { return tournamentName; } set { entryTName.Text = value; } }
 
-        public bool Cut { get; set; }
+        public int MaxPoints { get { return maxPoints; } set { spinbuttonPoints.Value = value; } }
 
-        public int CutTo { get; set; }
+        public bool Cut { get { return cut; } set { radiobuttonNoCut.Active = value; } }
 
-        public Language DisplayedLanguage { get; set; }
-
-        private bool newT;
-
-        public NewTournamentDialog(Tournament tournament = null)
+        public int CutTo
         {
-            this.Build();
-
-            spinbuttonPoints.Value = 100;
-            newT = true;
-
-            if (tournament != null)
+            get
             {
-                newT = false;
-                spinbuttonPoints.Value = tournament.MaxSquadPoints;
-                entryTName.Text = tournament.Name;
-                Cut = tournament.Cut;
-                CutTo = tournament.CutTo;
-                if (CutTo == 4)
+                return cutTo;
+            }
+            set
+            {
+                if (value == 4)
                     radiobuttonTop4.Active = true;
-                else if (CutTo == 8)
+                else if (value == 8)
                     radiobuttonTop8.Active = true;
-                else if (CutTo == 16)
+                else if (value == 16)
                     radiobuttonTop16.Active = true;
-                else if (CutTo == 32)
+                else if (value == 32)
                     radiobuttonTop32.Active = true;
-                else if (CutTo == 64)
+                else if (value == 64)
                     radiobuttonTop64.Active = true;
                 else
                     radiobuttonNoCut.Active = true;
             }
+        }
+
+        public Language DisplayedLanguage { get; set; }
+
+        public bool NewTournament { get; set; }
+
+        public TournamentDialog()
+        {
+            this.Build();
         }
 
 
@@ -59,21 +61,21 @@ namespace TXM
         protected void OK_Click(object sender, EventArgs e)
         {
             OK = true;
-            TournamentName = entryTName.Text;
-            MaxPoints = (int)spinbuttonPoints.Value;
-            Cut = !radiobuttonNoCut.Active;
+            tournamentName = entryTName.Text;
+            maxPoints = (int)spinbuttonPoints.Value;
+            cut = !radiobuttonNoCut.Active;
             if (radiobuttonTop4.Active)
-                CutTo = 4;
+                cutTo = 4;
             else if (radiobuttonTop8.Active)
-                CutTo = 8;
+                cutTo = 8;
             else if (radiobuttonTop16.Active)
-                CutTo = 16;
+                cutTo = 16;
             else if (radiobuttonTop32.Active)
-                CutTo = 32;
+                cutTo = 32;
             else if (radiobuttonTop64.Active)
-                CutTo = 64;
+                cutTo = 64;
             else
-                CutTo = 0;
+                cutTo = 0;
             this.Destroy();
         }
 
@@ -85,7 +87,7 @@ namespace TXM
 
         private void SetLanguage()
         {
-            if (newT)
+            if (NewTournament)
                 Title = DisplayedLanguage.GetTranslation(StaticLanguage.NewTournament);
             else
                 Title = DisplayedLanguage.GetTranslation(StaticLanguage.TournamentSettings);
@@ -95,9 +97,9 @@ namespace TXM
             radiobuttonTop16.Label = DisplayedLanguage.GetTranslation(StaticLanguage.TOP) + " 16";
             radiobuttonTop32.Label = DisplayedLanguage.GetTranslation(StaticLanguage.TOP) + " 32";
             radiobuttonTop64.Label = DisplayedLanguage.GetTranslation(StaticLanguage.TOP) + " 64";
-            labelTName.Text = "1. " + DisplayedLanguage.GetTranslation(StaticLanguage.TournamentName) + ":";
-            labelCut.Text = "2. " + DisplayedLanguage.GetTranslation(StaticLanguage.Cut) + "?";
-            labelPoints.Text = "3. " + DisplayedLanguage.GetTranslation(StaticLanguage.MaxSquadpoints) + ":";
+            labelTName.Text = DisplayedLanguage.GetTranslation(StaticLanguage.TournamentName);
+            labelCut.Text = DisplayedLanguage.GetTranslation(StaticLanguage.Cut) + "?";
+            labelPoints.Text = DisplayedLanguage.GetTranslation(StaticLanguage.MaxSquadpoints);
             buttonOk.Label = DisplayedLanguage.GetTranslation(StaticLanguage.OK);
             buttonCancel.Label = DisplayedLanguage.GetTranslation(StaticLanguage.Cancel);
         }

@@ -1,7 +1,0 @@
-C:\Users\martin\Documents\GitHub\TXM\TXM\bin\Debug\TXM.exe
-C:\Users\martin\Documents\GitHub\TXM\TXM\bin\Debug\TXM.pdb
-C:\Users\martin\Documents\GitHub\TXM\TXM\bin\Debug\TXM.Core.dll
-C:\Users\martin\Documents\GitHub\TXM\TXM\bin\Debug\TXM.Core.pdb
-C:\Users\martin\Documents\GitHub\TXM\TXM\obj\x86\Debug\TXM.csprojResolveAssemblyReference.cache
-C:\Users\martin\Documents\GitHub\TXM\TXM\obj\x86\Debug\TXM.exe
-C:\Users\martin\Documents\GitHub\TXM\TXM\obj\x86\Debug\TXM.pdb

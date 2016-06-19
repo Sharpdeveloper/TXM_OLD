@@ -5,9 +5,11 @@
  */
 package txm;
 
+import txm.gui.MainWindow;
+
 /**
  *
- * @author martin
+ * @author Sharpdeveloper
  */
 public class TXM {
 
@@ -15,7 +17,8 @@ public class TXM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MainWindow mw = new MainWindow();
+        mw.setVisible(true);
     }
     
 }

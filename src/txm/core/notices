@@ -1,0 +1,11 @@
+in Tournament.addPlayer if players should be added after tournament starts
+if (getPairings().Count > 0)
+        {
+            if (getPairings()[getPairings().Count - 1].Player2 == FreeTicket)
+            {
+                getPairings()[getPairings().Count - 1].Player2 = player;
+                getPairings()[getPairings().Count - 1].ResultEdited = false;
+            }
+            else
+                getPairings().Add(new Pairing()); 
+        }

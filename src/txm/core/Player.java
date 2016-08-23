@@ -15,17 +15,23 @@ import java.util.function.BiFunction;
  * @author Sharpdeveloper
  */
 public class Player{
-  //static Bundle with the language, so it can be easy replaced and reffered
-  private static int currentID = 0;
-  private static Random random = new Random();
-  private static Player Bye;
-  public static Player getBye(){
-    return (Bye == null ? Bye = new Player(java.util.ResourceBundle.getBundle("txm/resources/languages").getString("BYE")) : Bye);
-  }
-  private static Player WonBye;
-  public static Player getWonBye(){
+    //static Bundle with the language, so it can be easy replaced and reffered
+    private static int currentID = 0;
+    private static Random random = new Random();
+    private static Player Bye;
+    public static Player getBye(){
+        return (Bye == null ? Bye = new Player(java.util.ResourceBundle.getBundle("txm/resources/languages").getString("BYE")) : Bye);
+    }
+    private static Player WonBye;
+    public static Player getWonBye(){
         return (WonBye == null ? WonBye = new Player(java.util.ResourceBundle.getBundle("txm/resources/languages").getString("WONBYE")) : WonBye);
     }
+
+    private static int displayedRound = 0;
+    public static void setDisplayedRound(int newDisplayedRound){
+        displayedRound = newDisplayedRound;
+    }
+
     
     //lastName
     private String lastName;
@@ -84,61 +90,85 @@ public class Player{
     //T3ID
     private int T3ID;
     //rank
-    private int rank = 0;
+    private List<Integer> rank;
     public int getRank(){
-        return (rank == 0 ? ID : rank);
+        return (displayedRound == 0 ? ID : getRank(displayedRound));
+    }
+    public int getRank(int round){
+        return rank.get(round);
     }
     //randomOrder
     public int getRandomOrder(){
         return random.nextInt(999999);
     }
     //wins
-    private int wins = 0;
+    private List<Integer> wins;
     public int getWins()    {
-        return wins;
+        return getWins(displayedRound);
+    }
+    public int getWins(int round){
+        return wins.get(round);
     }
     //modifiedWins
-    private int modifiedWins = 0;
+    private List<Integer> modifiedWins;
     public int getModifiedWins()    {
-        return modifiedWins;
+        return getModifiedWins(displayedRound);
+    }
+    public int getModifiedWins(int round){
+        return modifiedWins.get(round);
     }
     //draws
-    private int draws = 0;
+    private List<Integer> draws;
     public int getDraws()    {
-        return draws;
+        return getDraws(displayedRound);
+    }
+    public int getDraws(int round){
+        return draws.get(round);
     }
     //modifiedLosses
-    private int modifiedLosses = 0;
+    private List<Integer> modifiedLosses;
     public int getModifiedLosses()    {
-        return modifiedLosses;
+        return getModifiedLosses(displayedRound);
+    }
+    public int getModifiedLosses(int round){
+        return modifiedLosses.get(round);
     }
     //losses
-    private int losses = 0;
+    private List<Integer> losses;
     public int getLosses()    {
-        return losses;
+        return getLosses(displayedRound);
+    }
+    public int getLosses(int round) {
+        return losses.get(round);
     }
     //tournamentPoints
-    private int tournamentPoints = 0;
+    private List<Integer> tournamentPoints;
     public int getTournamentPoints(){
-        return tournamentPoints;
+        return getTournementPoints(displayedRound);
+    }
+    public int getTournementPoints(int round){
+        return tournamentPoints.get(round);
     }
     //destroyedPoints
-    private int destroyedPoints = 0;
+    private List<Integer> destroyedPoints;
     public int getDestroyedPoints(){
-        return destroyedPoints;
+        return getDestroyedPoints(displayedRound);
+    }
+    public int getDestroyedPoints(int round){
+        return destroyedPoints.get(round);
     }
     //lostPoints
-    private int lostPoints = 0;
+    private List<Integer> lostPoints;
     public int getLostPoints(){
         return lostPoints;
     }
     //strengthOfSchedule
-    private int strengthOfSchedule = 0;
+    private List<Integer> strengthOfSchedule;
     public int getStrengthOfSchedule(){
         return strengthOfSchedule;
     }
     //marginOfVictory
-    private int marginOfVictory = 0;
+    private List<Integer> marginOfVictory;
     public int getMarginOfVictory(){
         return marginOfVictory;
     }

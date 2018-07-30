@@ -1,0 +1,6 @@
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\bin\Debug\TXM.Core.dll
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\bin\Debug\TXM.Core.pdb
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Debug\TXM.Core.csproj.CoreCompileInputs.cache
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Debug\TXM.Core.dll
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Debug\TXM.Core.pdb
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Debug\TXM.Core.csprojResolveAssemblyReference.cache

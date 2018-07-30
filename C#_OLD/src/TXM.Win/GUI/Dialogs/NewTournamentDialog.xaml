@@ -1,0 +1,34 @@
+﻿<Window x:Class="TXM.GUI.Dialogs.NewTournamentDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create new Tournament" Height="376.244" Width="494.561" ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="203*"/>
+            <ColumnDefinition Width="286*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="LabelTournamentForm" Content="Choose Tournamenttype:" HorizontalAlignment="Left" Margin="12,43,0,0" VerticalAlignment="Top" Height="33"/>
+        <ComboBox x:Name="ComboBoxTournamentType" HorizontalAlignment="Left" Margin="5,43,0,0" VerticalAlignment="Top" Width="263" SelectionChanged="ComboBoxTournamentType_SelectionChanged" Grid.Column="1"/>
+        <Label x:Name="LabelCut" Content="Cut?" HorizontalAlignment="Left" Margin="12,76,0,0" VerticalAlignment="Top" Height="33"/>
+        <RadioButton x:Name="RadioButtonTop4" GroupName="Cut" Content="Top 4" HorizontalAlignment="Left" Margin="147,82,0,0" VerticalAlignment="Top" IsEnabled="True" Click="RadioButton_Click" Grid.Column="1"/>
+        <RadioButton x:Name="RadioButtonTop8" GroupName="Cut" Content="Top 8" HorizontalAlignment="Left" Margin="5,102,0,0" VerticalAlignment="Top" IsEnabled="True" Click="RadioButton_Click" Grid.Column="1"/>
+        <RadioButton x:Name="RadioButtonTop16" GroupName="Cut" Content="Top 16" HorizontalAlignment="Left" Margin="147,102,0,0" VerticalAlignment="Top" IsEnabled="True" Click="RadioButton_Click" Grid.Column="1"/>
+        <RadioButton x:Name="RadioButtonNoCut" GroupName="Cut" Content="No Cut" HorizontalAlignment="Left" Margin="5,82,0,0" VerticalAlignment="Top" IsEnabled="True" IsChecked="True" Click="RadioButton_Click" Grid.Column="1"/>
+        <TextBox x:Name="TextBoxMaxSquad" Margin="9,156,0,0" HorizontalAlignment="Left" Width="259" Height="19" VerticalAlignment="Top" TextChanged="IntegerUpDownMaxSquad_ValueChanged" Grid.Column="1"/>
+        <Button x:Name="ButtonOK" Content="Save" HorizontalAlignment="Left" Margin="108,313,0,0" VerticalAlignment="Top" Width="72" Click="NewTournament_Click" Grid.Column="1"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="194,313,0,0" VerticalAlignment="Top" Width="75" Click="Cancel_Click" Grid.Column="1"/>
+        <Label x:Name="LabelTournamentName" Content="Tournamentname:" HorizontalAlignment="Left" Margin="12,122,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextboxName" HorizontalAlignment="Left" Height="23" Margin="9,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="259" TextChanged="TextboxName_TextChanged" Grid.Column="1"/>
+        <Label x:Name="LabelListsize" Content="Max Listpoints:" HorizontalAlignment="Left" Margin="12,153,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="First Round Teamprotection?&#xA;(only allowed in casual events)" HorizontalAlignment="Left" Margin="14,210,0,0" VerticalAlignment="Top" Width="187"/>
+        <RadioButton x:Name="radioButtonTPYes" Content="Yes" GroupName="TeamProtection" HorizontalAlignment="Left" Margin="10,231,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton x:Name="radioButtonTPNo" IsChecked="true" GroupName="TeamProtection" Content="No" HorizontalAlignment="Left" Margin="148,231,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="label_Copy1" Content="Tournamenttype:" HorizontalAlignment="Left" Margin="14,257,0,0" VerticalAlignment="Top" Width="194" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="radioButtonTypeSingle" IsChecked="True" Content="Single" GroupName="Type" HorizontalAlignment="Left" Margin="11,263,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton x:Name="radioButtonTypeTeam" IsChecked="false" GroupName="Type" Content="Team" HorizontalAlignment="Left" Margin="79,263,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Label x:Name="LabelGameSystem" Content="Choose Gamesystem:" HorizontalAlignment="Left" Margin="13,10,0,0" VerticalAlignment="Top" Height="33"/>
+        <ComboBox x:Name="ComboBoxGameSystem" HorizontalAlignment="Left" Margin="5,10,0,0" VerticalAlignment="Top" Width="263" SelectionChanged="ComboBoxTournamentType_SelectionChanged" Grid.Column="1"/>
+        <Label x:Name="label_Copy2" Content="Only needed at games with Army or Squadlists." HorizontalAlignment="Left" Margin="14,175,0,0" VerticalAlignment="Top" Width="266" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

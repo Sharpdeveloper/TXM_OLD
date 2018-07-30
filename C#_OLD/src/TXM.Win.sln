@@ -1,0 +1,43 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TXM.Win", "TXM.Win\TXM.Win.csproj", "{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TXM.Core", "TXM.Core\TXM.Core.csproj", "{77EA224F-F531-4903-ABBE-388CDE265F58}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Debug|x86.ActiveCfg = Debug|x86
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Debug|x86.Build.0 = Debug|x86
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Release|Any CPU.Build.0 = Release|Any CPU
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Release|x86.ActiveCfg = Release|x86
+		{438AABB8-B8A5-4AAB-A927-08BAD2AFA992}.Release|x86.Build.0 = Release|x86
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Debug|x86.Build.0 = Debug|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Release|x86.ActiveCfg = Release|Any CPU
+		{77EA224F-F531-4903-ABBE-388CDE265F58}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE59808F-1FA9-4D44-B181-2B2587D1AE52}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = TXM.Win\TXM.Win.csproj
+	EndGlobalSection
+EndGlobal

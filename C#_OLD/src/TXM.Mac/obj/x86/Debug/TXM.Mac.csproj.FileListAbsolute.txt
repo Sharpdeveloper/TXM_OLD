@@ -1,0 +1,14 @@
+/Users/martin/Projekte/TXM/src/TXM.Mac/bin/Debug/TXM.exe
+/Users/martin/Projekte/TXM/src/TXM.Mac/bin/Debug/TXM.pdb
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/actool/asset-manifest.plist
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/ibtool-manifests/Main.storyboardc
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/ibtool/Main.storyboardc/Info.plist
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/ibtool/Main.storyboardc/MainMenu.nib
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/ibtool/Main.storyboardc/NSWindowController-B8D-0N-5wS.nib
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/ibtool/Main.storyboardc/XfG-lQ-9wD-view-m2S-Jp-Qdl.nib
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/TXM.Mac.csproj.CoreCompileInputs.cache
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/TXM.exe
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/TXM.pdb
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/actool/partial-info.plist
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/actool/bundle/AppIcon.icns
+/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/actool/bundle/Assets.car

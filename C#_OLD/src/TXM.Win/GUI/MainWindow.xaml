@@ -1,0 +1,131 @@
+﻿<Window x:Class="TXM.GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TXM - The Tournament App" Height="650" Width="725" WindowState="Maximized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5px"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="150px"/>
+        </Grid.ColumnDefinitions>
+        <Menu Height="18" VerticalAlignment="Top" Grid.Row="0" Grid.ColumnSpan="4">
+            <MenuItem x:Name="MenuItemFile" Header="File">
+                <MenuItem x:Name="ButtonNewTournament" Header="New Tournament" Click="NewTournament_Click"/>
+                <MenuItem x:Name="ButtonLoad" Header="Load" Click="Load_Click"/>
+                <MenuItem x:Name="MenuItemSave" Header="Save" Click="Save_Click" IsEnabled="False"/>
+                <MenuItem x:Name="MenuItemAutosave" Header="Autosave Files">
+                    <MenuItem x:Name="ButtonAutosave" Header="Load Autosave Files" Click="ButtonAutosave_Click"/>
+                    <MenuItem x:Name="MenuItemShowAutoSaveFolder"  Header="Show Autosave Folder" Click="MenuItemOpenAutoSaveFolder_Click"/>
+                    <MenuItem x:Name="MenuItemDeleteAutosaveFolder" Header="Delete Autosave Folder" Click="MenuItemDeleteAutosave_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemImportExport" Header="Import/Export">
+                    <MenuItem x:Name="ButtonGOEPPImport" Header="T3 Import" Click="GOEPPImport_Click"/>
+                    <MenuItem x:Name="MenuItemCSVImport" Header="Excel (CSV) Import" Click="MenuItemCSVImport_Click"/>
+                    <MenuItem x:Name="ButtonGOEPPExport" Header="T3 Export" IsEnabled="false" Click="GOEPPExport_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemPrintHeader" Header="Print">
+                    <MenuItem x:Name="MenuItemPrint" Header="Print Table" Click="MenuItemPrint_Click"/>
+                    <MenuItem x:Name="MenuItemPrintPairing" Header="Print Pairings (without Results)" Click="MenuItemPrintPairing_Click"/>
+                    <MenuItem x:Name="MenuItemPrintResult" Header="Print Pairings (with Results)" Click="MenuItemPrintResult_Click"/>
+                    <MenuItem x:Name="MenuItemPrintPairingScoreSheet" Header="Print Pairing with Score Sheet" Click="MenuItemPrintParingScore_Click"/>
+                </MenuItem>
+                <MenuItem x:Name="MenuItemExit" Header="Quit" Click="Close_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemTournament" Header="Tournament">
+                <MenuItem x:Name="MenuItemChangePairing" Header="Change Pairings" IsEnabled="false" Click="ButtonChangePairing_Click"/>
+                <MenuItem x:Name="MenuItemResetLastResults" Header="Reset Last Results" IsEnabled="False" Click="MenuItemResetLastResults_Click"/>
+                <MenuItem x:Name="MenuItemTSettings" Header="Change Tournamentsettings" IsEnabled="False" Click="MenuItemTSettings_Click"/>
+                <MenuItem x:Name="ButtonEndTournament" Header="Calculate SoS for Won Byes" IsEnabled="true" Click="EndTournament_Click"/>
+                <MenuItem x:Name="MenuItemBonusPoints" Header="Award Bonus Points" IsEnabled="True" Click="MenuItemBonusPoints_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemPlayerManagement" Header="Playermanagement">
+                <MenuItem x:Name="MenuItemNewPlayer"  Header="Create new Player" Click="NewPlayer_Click" IsEnabled="False"/>
+                <MenuItem x:Name="MenuItemEditPlayer" Header="Edit Player" IsEnabled="False" Click="RibbonButtonEditPlayer_Click"/>
+                <MenuItem x:Name="MenuItemRemovePlayer" Header="Delete/Drop Player" Click="RemovePlayer_Click" IsEnabled="False"/>
+                <MenuItem x:Name="MenuItemDisqualifyPlayer" Header="Disqualify Player" Click="DisqualifyPlayer_Click" IsEnabled="False"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemView" Header="View">
+                <MenuItem x:Name="MenuItemShowPairings" Header="Show Pairings" Click="MenuItemShowPairings_Click"/>
+                <MenuItem x:Name="MenuItemShowTable" Header="Show Table"  Click="MenuItemShowTable_Click"/>
+                <MenuItem x:Name="MenuItemBBCode" Header="Get BBCode for Forum" Click="MenuItemBBCode_Click"/>
+                <MenuItem x:Name="MenuItemRefreshPlayerList" Header="Refresh Player List" Click="RefreshPlayerList"/>
+                <MenuItem x:Name="MenuItemRefreshPairingsList" Header="Refresh Pairings List" Click="RefreshPairingsList"/>
+            </MenuItem>
+            <MenuItem x:Name="MenuItemTools" Header="Tools">
+                <MenuItem x:Name="MenuItemTimer" Header="Timer" Click="NewTimer_Click" />
+            </MenuItem>
+            <MenuItem x:Name="MenuItemHelp" Header="Help">
+                <MenuItem x:Name="MenuItemUserHelp" Header="User Manual (online)" Click="MenuItemUserHelp_Click"/>
+                <MenuItem x:Name="MenuItemAbout" Header="About TXM" Click="MenuItemAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4">
+            <Button IsEnabled="False" x:Name="ButtonGetResults" Content="Start Tournament" ToolTip="Start Tournament" Click="ButtonGetResults_Click"/>
+            <Button IsEnabled="False" x:Name="ButtonCut" Content="Start Cut" ToolTip="Start Cut" Click="ButtonCut_Click"/>
+            <Separator/>
+            <Label Content="Rounds"/>
+            <ComboBox x:Name="ComboBoxRounds" Text="Rounds" ToolTip="Rounds" SelectionChanged="ComboBoxRounds_SelectionChanged"/>
+            <Separator/>
+            <Button x:Name="ButtonSave" ToolTip="Save" Click="Save_Click" IsEnabled="False">
+                <Image Source="pack://application:,,,/Resources/Save-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonNewPlayer" ToolTip="Create new Player" Click="NewPlayer_Click" IsEnabled="False">
+                <Image Source="pack://application:,,,/Resources/Add User-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonEditPlayer" ToolTip="Edit Player" IsEnabled="False" Click="RibbonButtonEditPlayer_Click">
+                <Image Source="pack://application:,,,/Resources/Edit User-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonRemovePlayer" ToolTip="Delete/Drop Player" Click="RemovePlayer_Click" IsEnabled="False">
+                <Image Source="pack://application:,,,/Resources/Remove User-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonDisqualifyPlayer" ToolTip="Disqualify Player" Click="DisqualifyPlayer_Click" IsEnabled="False">
+                <Image Source="pack://application:,,,/Resources/Unfriend Male-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonChangePairing" ToolTip="Change Pairings" IsEnabled="false" Click="ButtonChangePairing_Click">
+                <Image Source="pack://application:,,,/Resources/User Group-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonResetLastResults" ToolTip="Reset last results" IsEnabled="False" Click="MenuItemResetLastResults_Click">
+                <Image Source="pack://application:,,,/Resources/Rotate Left-100.png" Width="25" Height="25" />
+            </Button>
+            <Button x:Name="ButtonTimer" ToolTip="Timer" Click="NewTimer_Click" >
+                <Image Source="pack://application:,,,/Resources/Watch-100.png" Width="25" Height="25" />
+            </Button>
+        </ToolBar>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <DataGrid x:Name="DataGridPlayer" AutoGenerateColumns="False" SelectionChanged="DataGridPlayer_SelectionChanged" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" MouseDoubleClick="DataGridPlayer_DoubleClicked" CellEditEnding="DataGridPlayer_CellEditEnding"/>
+        </Grid>
+        <GridSplitter Grid.Column="1" Grid.Row="2" Width="5" HorizontalAlignment="Stretch" />
+        <Grid Grid.Row="2" Grid.Column="2">
+            <DataGrid x:Name="DataGridPairing" DataGridCell.Selected="DataGrid_GotFocus" AutoGenerateColumns="False" CurrentCellChanged="PariringCurrentCellChanged" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" MouseLeftButtonUp="GridMouseLeftButtonUp" CanUserAddRows="False" BeginningEdit="DataGridPairing_BeginningEdit"/>
+        </Grid>
+        <Grid Grid.Column="3" Grid.Row="2">
+            <Label x:Name="LabelTime" Content="MM:SS" VerticalAlignment="Top" Height="40" FontSize="20" Margin="0,0,0,0" HorizontalAlignment="Center"/>
+            <Button x:Name="ButtonStartTimer" Content="Start" ToolTip="Start" VerticalAlignment="Top" Click="MenuItemTimeStart_Click" Margin="0,40,0,0" Height="20"/>
+            <Button x:Name="ButtonPause" Content="Pause" ToolTip="Pause" VerticalAlignment="Top" Click="MenuItemTimePause_Click" Margin="0,60,0,0" Height="20"/>
+            <Button x:Name="ButtonReset" Content="Reset" ToolTip="Reset" VerticalAlignment="Top" Click="MenuItemTimeReset_Click" Margin="0,80,0,0" Height="20"/>
+            <Button x:Name="ButtonSetImage" Content="Set Image" ToolTip="Set Image" VerticalAlignment="Top" Click="SetImage_Click" Margin="0,100,0,0" Height="20"/>
+            <TextBox x:Name="TextBoxTime" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,120,0,0" Height="20" Width="120" TextChanged="TextBoxTime_TextChanged"/>
+            <Label Content="Min" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,117,0,0" Height="25" Width="30"/>
+            <Slider x:Name="SliderText" HorizontalAlignment="Center" Margin="0,140,0,22" Height="20" VerticalAlignment="Top" Maximum="2" Minimum="1" SmallChange="1" Width="50" ValueChanged="SliderColor_Changed"/>
+            <Label x:Name="LabelWhiteText" Content="White" HorizontalAlignment="Left" Margin="0,137,0,0" Height="25" VerticalAlignment="Top"/>
+            <Label x:Name="LabelBlackText" Content="Black" HorizontalAlignment="Right" Margin="0,137,0,0" Height="25" VerticalAlignment="Top"/>
+            <Slider x:Name="SliderSize" HorizontalAlignment="Center" Margin="0,160,0,22" Height="20" VerticalAlignment="Top" Maximum="100" Minimum="1" SmallChange="1" Width="75" ValueChanged="SliderSize_Changed"/>
+            <Label x:Name="LabelSmall" Content="Small" HorizontalAlignment="Left" Margin="0,157,0,0" Height="25" VerticalAlignment="Top"/>
+            <Label x:Name="LabelBig" Content="Large" HorizontalAlignment="Right" Margin="0,157,0,0" Height="25" VerticalAlignment="Top"/>
+            <Label x:Name="LabelTimerStart" Content="Start Timer at" HorizontalAlignment="Left" Margin="0,180,0,0" Height="25" VerticalAlignment="Top"/>
+            <TextBox x:Name="TextBoxStartTime" Text="" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,205,0,0" Height="20" Width="100"/>
+            <Label Content="HH:MM" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,202,0,0" Height="25" Width="50"/>
+            <Label x:Name="LabelHideHint" Content="H/S locked/edited rows." HorizontalAlignment="Left" Margin="0,230,0,0" Height="25" VerticalAlignment="Top"/>
+            <Slider x:Name="SliderHide" HorizontalAlignment="Center" Margin="0,250,0,22" Height="20" VerticalAlignment="Top" Maximum="2" Minimum="1" SmallChange="1" Width="75" ValueChanged="SliderHide_ValueChanged"/>
+            <Label x:Name="LabelShow" Content="Show" HorizontalAlignment="Left" Margin="0,247,0,0" Height="25" VerticalAlignment="Top"/>
+            <Label x:Name="LabelHide" Content="Hide" HorizontalAlignment="Right" Margin="0,247,0,0" Height="25" VerticalAlignment="Top"/>
+            <Image x:Name="ImageLogo" VerticalAlignment="Bottom" Source="pack://application:,,,/Resources/TXM_Logo.png"/>
+        </Grid>
+    </Grid>
+</Window>

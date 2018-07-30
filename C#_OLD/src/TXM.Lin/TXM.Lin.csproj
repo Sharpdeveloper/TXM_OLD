@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{540C1C37-B3FC-4F05-8D2C-90C0B251473B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TXM.Lin</RootNamespace>
+    <AssemblyName>TXM.Lin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>glade-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <SpecificVersion>False</SpecificVersion>
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="MainWindow.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.MainWindow.cs" />
+    <Compile Include="TimerWindow.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.TimerWindow.cs" />
+    <Compile Include="NewTournament2Dialog.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.NewTournament2Dialog.cs" />
+    <Compile Include="AutosaveDialog.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.AutosaveDialog.cs" />
+    <Compile Include="PlayerTreeNode.cs" />
+    <Compile Include="PairingTreeNode.cs" />
+    <Compile Include="RandomizerWindow.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.RandomizerWindow.cs" />
+    <Compile Include="NewPlayerDialog.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.NewPlayerDialog.cs" />
+    <Compile Include="SetPairingDialog.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.SetPairingDialog.cs" />
+    <Compile Include="PrePairedTreeNode.cs" />
+    <Compile Include="OutputDialog.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.OutputDialog.cs" />
+    <Compile Include="TableConverterWindow.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.TableConverterWindow.cs" />
+    <Compile Include="StatisticsWindow.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.StatisticsWindow.cs" />
+    <Compile Include="StatisticsTreeNode.cs" />
+    <Compile Include="BeamerWindow.cs" />
+    <Compile Include="gtk-gui\TXM.Lin.BeamerWindow.cs" />
+    <Compile Include="LinuxFile.cs" />
+    <Compile Include="LinuxMessage.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\..\TXM.Core\TXM.Core.csproj">
+      <Project>{51EC506B-EB72-4877-9DD5-907178D648F8}</Project>
+      <Name>TXM.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

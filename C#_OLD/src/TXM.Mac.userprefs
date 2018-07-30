@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{BF337492-7F07-4B0D-A34B-5FD7D2411F27}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="TXM.Mac/ViewController.designer.cs">
+    <Files>
+      <File FileName="TXM.Mac/ViewController.cs" Line="51" Column="16" />
+      <File FileName="TXM.Mac/Main.cs" Line="11" Column="4" />
+      <File FileName="TXM.Core/MyClass.cs" Line="1" Column="1" />
+      <File FileName="TXM.Core/TournamentController.cs" Line="109" Column="6" />
+      <File FileName="TXM.Mac/ViewController.designer.cs" Line="36" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TXM.Mac PreferredExecutionTarget="Test1" />
+  <MultiItemStartupConfigurations />
+</Properties>

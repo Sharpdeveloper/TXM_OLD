@@ -1,0 +1,10 @@
+﻿<Window x:Class="TXM.GUI.Windows.TimerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="X-Wing Timer" Height="456.472" Width="751.537" WindowStartupLocation="CenterScreen">
+    <Grid Height="Auto" Width="Auto">
+        <Image x:Name="BackGroundImage" ScrollViewer.VerticalScrollBarVisibility="Disabled" Stretch="UniformToFill"/>
+        <Label x:Name="LabelTime" Content="HH:MM" Margin="20,0,10,170" RenderTransformOrigin="1.584,-0.869" BorderThickness="0" FontSize="400" FontWeight="Bold" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Center" ScrollViewer.VerticalScrollBarVisibility="Disabled" Foreground="Black"/>
+    </Grid>
+</Window>
+

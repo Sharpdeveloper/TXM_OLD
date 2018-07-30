@@ -1,0 +1,8 @@
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/bin/Debug/TXMTest.exe.config
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/bin/Debug/TXMTest.exe.mdb
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/bin/Debug/TXMTest.exe
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/obj/Debug/TXMTest.exe
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/obj/Debug/TXMTest.exe.mdb
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/bin/Debug/TXM.Core.dll
+/Users/martin/CloudStation/Projekte/TXM/TXMTest/bin/Debug/TXM.Core.dll.mdb

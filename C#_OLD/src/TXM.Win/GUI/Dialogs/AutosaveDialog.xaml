@@ -1,0 +1,10 @@
+﻿<Window x:Class="TXM.GUI.Dialogs.AutosaveDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="AutosaveDialog" Height="293" Width="584" ResizeMode="NoResize">
+    <Grid>
+        <DataGrid x:Name="DataGridAutosave" SelectionMode="Single" AutoGenerateColumns="False" Height="214" Margin="10,10,10,0" VerticalAlignment="Top" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto" MouseDoubleClick="DataGridAutosave_MouseDoubleClick"/>
+        <Button x:Name="ButtonCancel" Content="Cancel" HorizontalAlignment="Left" Margin="493,229,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="ButtonLoad" Content="Load" HorizontalAlignment="Left" Margin="413,229,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+    </Grid>
+</Window>

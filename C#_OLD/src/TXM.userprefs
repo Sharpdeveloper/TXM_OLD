@@ -1,0 +1,20 @@
+﻿<Properties StartupConfiguration="{05E815C6-9F3E-4F25-8CCC-6B32ACEAF410}|Default">
+  <MonoDevelop.Ide.ItemProperties.TXM.Forms.Droid PreferredExecutionTarget="Android.Android_Accelerated_x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TXM.Forms/App.xaml.cs">
+    <Files>
+      <File FileName="TXM.Forms/Views/MainPage.cs" Line="1" Column="1" />
+      <File FileName="TXM.Forms/Views/NewItemPage.xaml" Line="15" Column="1" />
+      <File FileName="TXM.Forms/App.xaml.cs" Line="28" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.TXM.Lin PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.TXM.Forms.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.">
+    <MonoDevelop.MacDev.AppleDevelopmentTeam />
+  </MonoDevelop.Ide.ItemProperties.TXM.Forms.iOS>
+</Properties>

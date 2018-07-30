@@ -1,0 +1,5 @@
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\bin\Release\TXM.Core.dll
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\bin\Release\TXM.Core.pdb
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Release\TXM.Core.csproj.CoreCompileInputs.cache
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Release\TXM.Core.dll
+C:\Users\martin\Documents\GitHub\TXM\src\TXM.Core\obj\Release\TXM.Core.pdb

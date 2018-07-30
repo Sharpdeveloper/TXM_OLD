@@ -1,0 +1,8 @@
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\obj\Debug\TXMTest.csprojResolveAssemblyReference.cache
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\obj\Debug\TXMTest.exe
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\bin\Debug\TXMTest.exe.config
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\bin\Debug\TXMTest.exe
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\bin\Debug\TXMTest.pdb
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\bin\Debug\TXM.Core.dll
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\bin\Debug\TXM.Core.pdb
+C:\Users\martin\Documents\GitHub\TXM\src\TXMTest\obj\Debug\TXMTest.pdb

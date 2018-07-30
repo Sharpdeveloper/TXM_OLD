@@ -1,0 +1,21 @@
+# Version: 4.0.0.215 (d15-5: 1bda16aa)
+# [first argument, ignore] # /Library/Frameworks/Xamarin.Mac.framework/Versions/4.0.0.215/lib/mmp/mmp.exe
+/Library/Frameworks/Xamarin.Mac.framework/Versions/4.0.0.215/lib/mmp/mmp.exe \
+	/verbose \
+	/debug \
+	/output:/Users/martin/Projekte/TXM/src/TXM.Mac/bin/Debug/ \
+	/name:TXM \
+	'/profile:Xamarin.Mac,Version=v2.0,Profile=Mobile' \
+	/arch:x86_64 \
+	--http-message-handler=HttpClientHandler \
+	/minos=10.12 \
+	/nolink \
+	/assembly:/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/lib/mono/Xamarin.Mac/mscorlib.dll \
+	/assembly:/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/lib/mono/Xamarin.Mac/System.Core.dll \
+	/assembly:/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/lib/mono/Xamarin.Mac/System.dll \
+	/assembly:/Library/Frameworks/Xamarin.Mac.framework/Versions/Current/lib/mono/Xamarin.Mac/Xamarin.Mac.dll \
+	/Users/martin/Projekte/TXM/src/TXM.Mac/bin/Debug/TXM.exe \
+	/sdkroot \
+	/Applications/Xcode.app/Contents/Developer \
+	--cache \
+	/Users/martin/Projekte/TXM/src/TXM.Mac/obj/x86/Debug/mmp-cache \

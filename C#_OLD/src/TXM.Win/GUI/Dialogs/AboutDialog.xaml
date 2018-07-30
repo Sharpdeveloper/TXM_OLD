@@ -1,0 +1,13 @@
+﻿<Window x:Class="TXM.GUI.Dialogs.AboutDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TXM.GUI.Dialogs"
+        mc:Ignorable="d"
+        Title="About" Height="215.151" Width="391.086" ResizeMode="NoResize">
+    <Grid>
+        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" IsEnabled="False"/>
+
+    </Grid>
+</Window>
